@@ -5,7 +5,7 @@ import Lettuce from "../../assets/imgs/Lettuce.png";
 
 export default function Hero() {
   return (
-    <div className="container lg:py-20 py-5 ">
+    <section className="container lg:py-20 py-5 ">
       <div className="grid lg:grid-cols-2 items-center lg:gap-20 space-y-32 lg:space-y-0 justify-center">
         {/* text section  */}
         <div className="space-y-5 capitalize  text-xl ">
@@ -47,6 +47,6 @@ export default function Hero() {
           />
         </div>
       </div>
-    </div>
+    </section>
   );
 }
