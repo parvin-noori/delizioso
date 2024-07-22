@@ -74,4 +74,8 @@
   .btn-primary {
     @apply bg-secondaryGreen text-white  py-3 px-8 rounded-full capitalize;
   }
+  body{
+    @apply text-brown font-light
+  }
 }
+

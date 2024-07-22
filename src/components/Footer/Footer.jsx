@@ -33,7 +33,7 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <Avatar>
                 <AvatarImage src="https://github.com/sdf.png" />
-                <AvatarFallback>CN</AvatarFallback>
+                <AvatarFallback>D</AvatarFallback>
               </Avatar>
               <span className="capitalize font-semibold">
                 delizi<span className="text-primaryOrange">oso</span>

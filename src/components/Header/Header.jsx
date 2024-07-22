@@ -1,6 +1,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbLayoutGridAdd } from "react-icons/tb";
+import { NavLink } from "react-router-dom";
 
 const MainMenu = [
   {
@@ -49,7 +50,7 @@ export default function Header() {
           <div className="flex items-center gap-3">
             <Avatar>
               <AvatarImage src="https://github.com/sdf.png" />
-              <AvatarFallback>CN</AvatarFallback>
+              <AvatarFallback>D</AvatarFallback>
             </Avatar>
             <h1 className="capitalize font-semibold">
               delizi<span className="text-primaryOrange">oso</span>
@@ -59,21 +60,28 @@ export default function Header() {
             <ul className="flex items-center  justify-around">
               {MainMenu.map((item) => (
                 <li key={item.id} className="capitalize">
-                  <a href={item.path} className="hover:text-primaryOrange">
+                  <NavLink
+                    to={item.path}
+                    className={({ isActive }) =>
+                      isActive && "text-primaryOrange" 
+                    } 
+                  >
                     {item.title}
-                  </a>
+                  </NavLink>
                 </li>
               ))}
             </ul>
           </div>
           <div className=" flex items-center lg:gap-5 gap-2 justify-end">
             <button className="size-12 aspect-square flex items-center justify-center bg-gray-50 rounded-full relative">
-              <span className="badge bg-red-500 text-white size-5 flex items-center justify-center rounded-full text-xs absolute -right-1 -top-1">
+              <span className="badge bg-red-500 text-white size-4 flex items-center justify-center rounded-full text-[10px] absolute right-1 top-1">
                 3
               </span>
               <MdOutlineShoppingCart className="text-xl" />
             </button>
-            <button className="btn-primary hidden lg:block text-nowrap">log in</button>
+            <button className="btn-primary hidden lg:block text-nowrap">
+              log in
+            </button>
             <button className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl">
               <TbLayoutGridAdd />
             </button>
