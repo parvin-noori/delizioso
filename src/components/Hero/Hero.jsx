@@ -1,7 +1,7 @@
 import React from "react";
 import ItanlianPasta from "../../assets/imgs/italian-pasta.png";
 import Lettuce from "../../assets/imgs/Lettuce.png";
-import { animate, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 export const slideUp = (delay) => {
   return {
@@ -21,10 +21,10 @@ export const slideUp = (delay) => {
 };
 export default function Hero() {
   return (
-    <section className="container lg:py-20 py-5 ">
-      <div className="grid lg:grid-cols-2 items-center lg:gap-20 space-y-32 lg:space-y-0 justify-center">
+    <section className="lg:py-20 py-5 overflow-x-hidden">
+      <div className="grid container lg:grid-cols-2 items-center lg:gap-20 space-y-32 lg:space-y-0 justify-center">
         {/* text section  */}
-        <div className="space-y-5 capitalize  text-xl ">
+        <div className="space-y-5 capitalize text-xl">
           <motion.span
             variants={slideUp(0.5)}
             initial="hidden"
