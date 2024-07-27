@@ -9,7 +9,7 @@ export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
   const url = "http://localhost:3000/products";
-  const pageSize = 2; // Number of items per page
+  const pageSize = 6; // Number of items per page
   const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
 
@@ -107,7 +107,7 @@ export default function MenuSection({ sectionTitle }) {
             </div>
           </>
         ): (
-          <p>No items found</p>
+          <p className="text-center">No items found</p>
         )}
       </div>
     </section>

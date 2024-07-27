@@ -95,7 +95,7 @@ export default function Header() {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      isActive ? "text-primaryOrange" : ""
+                      isActive ? "text-primaryOrange" : "hover:text-primaryOrange"
                     }
                   >
                     {item.title}
