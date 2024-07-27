@@ -1,0 +1,182 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "categoryName": "Mobile"
+    },
+    {
+      "id": 2,
+      "categoryName": "Electronics"
+    },
+    {
+      "id": 3,
+      "categoryName": "Appliances"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "title": "Spaghetti",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/italian-pasta.png"
+    },
+    {
+      "id": 2,
+      "title": "Gnocchi",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/Gnocchi.png"
+    },
+    {
+      "id": 3,
+      "title": "Rovioli",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/Rovioli.png"
+    },
+    {
+      "id": 4,
+      "title": "Penne Alla Vodak",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/PenneAllaVodak.png"
+    },
+    {
+      "id": 5,
+      "title": "Risoto",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/Risoto.png"
+    },
+    {
+      "id": 6,
+      "title": "Splitza Signature",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "categoryId": 1,
+      "rating": 4,
+      "img":"/assets/imgs/SplitzaSignature.png"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "scott@test.com",
+      "password": "Scott123",
+      "fullName": "Scott",
+      "dateOfBirth": "2000-12-15",
+      "gender": "male",
+      "country": "UK",
+      "receiveNewsLetters": true,
+      "rotle": "user"
+    },
+    {
+      "id": 2,
+      "email": "admin@gamil.com",
+      "password": "Admin123",
+      "fullName": "admin",
+      "dateOfBirth": "2000-12-15",
+      "gender": "female",
+      "country": "UK",
+      "receiveNewsLetters": true,
+      "role": "admin"
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "userId": 1,
+      "productId": 1,
+      "quantity": 2,
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 3,
+      "userId": 1,
+      "productId": 4,
+      "quantity": 1,
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 4,
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": true
+    },
+    {
+      "id": 6,
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": true
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 7
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 8
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 9
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 10
+    },
+    {
+      "userId": 1,
+      "productId": 5,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 11
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 12
+    },
+    {
+      "userId": 1,
+      "productId": 1,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 13
+    },
+    {
+      "userId": 1,
+      "productId": 3,
+      "quantity": 1,
+      "isPaymentCompleted": false,
+      "id": 14
+    }
+  ]
+}

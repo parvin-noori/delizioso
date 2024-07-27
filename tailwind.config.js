@@ -16,13 +16,17 @@ module.exports = {
         sm: "2rem",
         lg: "4rem",
         xl: "5rem",
-        "2xl": "6rem",
+        "2xl": "10rem",
       },
       screens: {
         "2xl": "1400px",
       },
     },
     extend: {
+      fontFamily: {
+        poppins: ["Poppins", "sans-serif"],
+        tinos: ["Tinos", "sans-serif"],
+      },
       colors: {
         primaryOrange: "#FF8A00",
         secondaryGreen: "#3FA72F",
@@ -36,9 +40,7 @@ module.exports = {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",
         },
-        fontFamily: {
-          poppins: ["Poppins", "sans-serif"],
-        },
+
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
