@@ -2,13 +2,11 @@ import _ from "lodash";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
-import { GrPrevious } from "react-icons/gr";
 
 export default function PaginationSection({ activePage, setPage, pages }) {
   const prevPage = () => {
@@ -30,13 +28,15 @@ export default function PaginationSection({ activePage, setPage, pages }) {
       return nextPage;
     });
   };
+
   return (
     <Pagination>
-      <PaginationContent className=" gap-5">
+      <PaginationContent className="gap-5">
         <PaginationItem>
           <PaginationPrevious
-            className="bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange "
+            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${activePage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
             onClick={prevPage}
+            disabled={activePage === 1}
           />
         </PaginationItem>
 
@@ -44,20 +44,22 @@ export default function PaginationSection({ activePage, setPage, pages }) {
           <PaginationItem
             className={`page-item ${index + 1 === activePage ? "active" : ""}`}
             onClick={() => setPage(index + 1)}
+            key={`pagination-${index}`}
           >
             <PaginationLink
-              className="bg-orange-100 text-primaryOrange rounded-xl border-opacity-0  cursor-pointer  hover:border-opacity-100 border-primaryOrange hover:text-primaryOrange hover:bg-transparent"
-              isActive
-              key={`pagination- ${index}`}
+              className="bg-orange-100 text-primaryOrange rounded-xl border-opacity-0 cursor-pointer hover:border-opacity-100 border-primaryOrange hover:text-primaryOrange hover:bg-transparent"
+              isActive={index + 1 === activePage}
             >
               {index + 1}
             </PaginationLink>
           </PaginationItem>
         ))}
+
         <PaginationItem>
           <PaginationNext
-            className="bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange"
+            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${activePage === pages ? "opacity-50 cursor-not-allowed" : ""}`}
             onClick={nextPage}
+            disabled={activePage === pages}
           />
         </PaginationItem>
       </PaginationContent>
