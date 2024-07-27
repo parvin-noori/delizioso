@@ -1,11 +1,8 @@
 import React from "react";
 
-export default function MenuItem({food}) {
+export default function MenuItem({ food }) {
   return (
-    <div
-      className="foodCard bg-gray-50 p-4 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
-    
-    >
+    <div className="foodCard bg-gray-50 p-4 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3">
       <img
         src={food.img}
         alt={food.title}
