@@ -71,6 +71,24 @@
       "category": "dinner",
       "rating": 4,
       "img": "/assets/imgs/SplitzaSignature.png"
+    },
+    {
+      "id": 7,
+      "title": "Spaghetti",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "category": "dinner",
+      "rating": 4,
+      "img": "/assets/imgs/italian-pasta.png"
+    },
+    {
+      "id": 8,
+      "title": "Gnocchi",
+      "desc": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Egestas consequat mi eget auctor aliquam, diam. ",
+      "price": 12.05,
+      "category": "dinner",
+      "rating": 4,
+      "img": "/assets/imgs/Gnocchi.png"
     }
   ],
   "users": [

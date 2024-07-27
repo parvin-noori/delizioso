@@ -3,23 +3,23 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import MenuItem from "../MenuItem/MenuItem";
 import { motion } from "framer-motion";
-
+import usePaginatedFetch from "@/usePaginatedFetch";
+import PaginationSection from "../Pagination/PaginationSection";
 
 export default function MenuSection({ sectionTitle }) {
-  const [foods, setFoods] = useState([]);
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
+  const url = "http://localhost:3000/products";
+  const [loading, data] = usePaginatedFetch(url, 6);
+  const [page, setPage] = useState(1);
+  const [foods, setFoods] = useState([]);
 
   useEffect(() => {
-    let fetchProducts = async () => {
-      try {
-        const response = await axios.get("http://localhost:3000/products");
-        setFoods(response.data);
-      } catch (err) {
-        console.log(err);
-      }
-    };
+    if (loading) return;
+    setFoods(data[page - 1] || []);
+  }, [loading, page, data]);
 
+  useEffect(() => {
     const fetchCategories = async () => {
       try {
         const categoryResponse = await axios.get(
@@ -30,7 +30,7 @@ export default function MenuSection({ sectionTitle }) {
         console.log(err);
       }
     };
-    fetchProducts();
+
     fetchCategories();
   }, []);
 
@@ -75,11 +75,24 @@ export default function MenuSection({ sectionTitle }) {
             </li>
           ))}
         </ul>
-        <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
-          {filterFoods.map((food,index) => (
-            <MenuItem key={food.id} food={food} index={index}/>
-          ))}
-        </div>
+        {loading ? (
+          <span>Loading...</span>
+        ) : (
+          <>
+            <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
+              {filterFoods.map((food, index) => (
+                <MenuItem key={food.id} food={food} index={index} />
+              ))}
+            </div>
+            <div className="flex m-auto py-10">
+              <PaginationSection
+                activePage={page}
+                setPage={setPage}
+                pages={data.length}
+              />
+            </div>
+          </>
+        )}
         {/* {Object.keys(Object.groupBy(foods, ({ category }) => category)).map(
             (cat) => (
               <span key={cat}>{cat}</span>
