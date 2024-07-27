@@ -69,15 +69,17 @@ export default function Header() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
-            className="flex items-center gap-3"
           >
-            <Avatar>
-              <AvatarImage src="https://github.com/sdf.png" />
-              <AvatarFallback>D</AvatarFallback>
-            </Avatar>
-            <h1 className="capitalize font-semibold">
-              delizi<span className="text-primaryOrange">oso</span>
-            </h1>
+            
+            <NavLink to="/" className="flex items-center gap-3">
+              <Avatar>
+                <AvatarImage src="https://github.com/sdf.png" />
+                <AvatarFallback>D</AvatarFallback>
+              </Avatar>
+              <h1 className="capitalize font-semibold">
+                delizi<span className="text-primaryOrange">oso</span>
+              </h1>
+            </NavLink>
           </motion.div>
           <div className="col-span-4 lg:block hidden">
             <ul className="flex items-center  justify-around">
@@ -93,7 +95,7 @@ export default function Header() {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      isActive ? "text-primaryOrange":''
+                      isActive ? "text-primaryOrange" : ""
                     }
                   >
                     {item.title}

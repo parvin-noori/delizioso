@@ -2,6 +2,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { FaInstagram, FaTwitter } from "react-icons/fa6";
 import { SiInstagram, SiTwitter } from "react-icons/si";
 import { FaFacebookF } from "react-icons/fa6";
+import { NavLink } from "react-router-dom";
 
 const socialMedia = [
   {
@@ -30,15 +31,15 @@ export default function Footer() {
       <div className="container">
         <div className="grid lg:grid-cols-3 gap-20">
           <div className="space-y-10">
-            <div className="flex items-center gap-3">
+            <NavLink to="/" className="flex items-center gap-3">
               <Avatar>
                 <AvatarImage src="https://github.com/sdf.png" />
-                <AvatarFallback>D</AvatarFallback>
+                <AvatarFallback className="text-ba">D</AvatarFallback>
               </Avatar>
               <span className="capitalize font-semibold">
                 delizi<span className="text-primaryOrange">oso</span>
               </span>
-            </div>
+            </NavLink>
             <p>
               Viverra gravida morbi egestas facilisis tortor netus non duis
               tempor.
