@@ -1,4 +1,24 @@
 {
+  "chefs": [
+    {
+      "id": 1,
+      "name": "betran komar",
+      "title": "head chef",
+      "img": "/assets/imgs/chef1.png"
+    },
+    {
+      "id": 2,
+      "name": "ferry sauwi",
+      "title": "chef",
+      "img": "/assets/imgs/chef2.png"
+    },
+    {
+      "id": 3,
+      "name": "iswan dracho",
+      "title": "chef",
+      "img": "/assets/imgs/chef1.png"
+    }
+  ],
   "categories": [
     {
       "id": 1,

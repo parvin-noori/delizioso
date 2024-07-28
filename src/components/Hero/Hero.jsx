@@ -21,7 +21,7 @@ export const slideUp = (delay) => {
 };
 export default function Hero() {
   return (
-    <section className="lg:py-20 py-5 overflow-x-hidden">
+    <section className="lg:py-20 py-5 overflow-hidden">
       <div className="grid container lg:grid-cols-2 items-center lg:gap-20 space-y-32 lg:space-y-0 justify-center">
         {/* text section  */}
         <div className="space-y-5 capitalize text-xl">
