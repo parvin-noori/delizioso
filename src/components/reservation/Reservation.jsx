@@ -26,7 +26,7 @@ export default function Reservation() {
           </div>
         </div>
         {/* text section  */}
-        <div className="space-y-16 capitalize text-xl order-first lg:order-last  lg:max-w-lg md:max-w-4xl  max-w-xl">
+        <div className="space-y-16 capitalize text-xl order-first lg:order-last  lg:max-w-lg md:max-w-3xl sm:max-w-xl max-w-sm">
           <motion.h2
             variants={slideUp(0.5)}
             initial="hidden"
