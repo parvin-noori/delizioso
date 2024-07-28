@@ -1,4 +1,4 @@
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import { slideUp } from "../Banner/Banner";
 
 export const slideDown = (delay) => {
@@ -24,7 +24,7 @@ export default function MenuItem({ food, index }) {
       variants={slideUp(index * 0.1)}
       initial="hidden"
       animate="show"
-      // exit={slideDown(index * 0.1)}
+      exit={slideDown(index * 0.1)}
       className="foodCard bg-gray-50 p-4 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
     >
       <img
