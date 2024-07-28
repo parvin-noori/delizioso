@@ -23,8 +23,8 @@ export default function MenuItem({ food, index }) {
     <motion.div
       variants={slideUp(index * 0.1)}
       initial="hidden"
-      whileInView="show"
-      exit={slideDown(index * 0.1)}
+      animate="show"
+      exit="hidden"
       className="foodCard group bg-gray-50 p-4 hover:shadow-md duration-200 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
     >
       <img
