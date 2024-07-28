@@ -23,14 +23,14 @@ export default function MenuItem({ food, index }) {
     <motion.div
       variants={slideUp(index * 0.1)}
       initial="hidden"
-      animate="show"
+      whileInView="show"
       exit={slideDown(index * 0.1)}
-      className="foodCard bg-gray-50 p-4 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
+      className="foodCard group bg-gray-50 p-4 hover:shadow-md duration-200 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
     >
       <img
         src={food.img}
         alt={food.title}
-        className="m-auto size-84 aspect-square"
+        className="m-auto size-84 aspect-square group-hover:scale-110 group-hover:rotate-12 drop-shadow-lg duration-700"
       />
       <span className="lg:text-4xl md:text-3xl text-xl font-semibold text-nowrap">
         {food.title}
@@ -40,7 +40,7 @@ export default function MenuItem({ food, index }) {
         <span className="text-2xl font-semibold text-primaryOrange md:text-black">
           ${food.price}
         </span>
-        <button className="text-white bg-primaryOrange rounded-full sm:py-4 sm:px-10 size-10 sm:size-auto flex items-center justify-center">
+        <button className="text-white hover:scale-110 duration-200 bg-primaryOrange rounded-full sm:py-4 sm:px-10 size-10 sm:size-auto flex items-center justify-center">
           <span className="hidden sm:block">order now</span>
           <span className="block sm:hidden">+</span>
         </button>
