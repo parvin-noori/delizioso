@@ -34,7 +34,9 @@ export default function PaginationSection({ activePage, setPage, pages }) {
       <PaginationContent className="gap-5">
         <PaginationItem>
           <PaginationPrevious
-            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${activePage === 1 ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${
+              activePage === 1 ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             onClick={prevPage}
             disabled={activePage === 1}
           />
@@ -47,7 +49,11 @@ export default function PaginationSection({ activePage, setPage, pages }) {
             key={`pagination-${index}`}
           >
             <PaginationLink
-              className="bg-orange-100 text-primaryOrange rounded-xl border-opacity-0 cursor-pointer hover:border-opacity-100 border-primaryOrange hover:text-primaryOrange hover:bg-transparent"
+              className={`${
+                index + 1 === activePage
+                  ? "bg-primaryOrange text-white "
+                  : "bg-orange-100 text-primaryOrange"
+              } rounded-xl border-opacity-0 cursor-pointer hover:border-opacity-100 border-primaryOrange hover:text-primaryOrange hover:bg-transparent`}
               isActive={index + 1 === activePage}
             >
               {index + 1}
@@ -57,7 +63,9 @@ export default function PaginationSection({ activePage, setPage, pages }) {
 
         <PaginationItem>
           <PaginationNext
-            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${activePage === pages ? "opacity-50 cursor-not-allowed" : ""}`}
+            className={`bg-brown text-white rounded-xl cursor-pointer hover:bg-orange-100 hover:text-primaryOrange ${
+              activePage === pages ? "opacity-50 cursor-not-allowed" : ""
+            }`}
             onClick={nextPage}
             disabled={activePage === pages}
           />

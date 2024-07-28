@@ -4,6 +4,7 @@ import MenuItem from "../MenuItem/MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
 import PaginationSection from "../Pagination/PaginationSection";
 import _ from "lodash";
+import { AnimatePresence } from "framer-motion";
 
 export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
@@ -53,9 +54,9 @@ export default function MenuSection({ sectionTitle }) {
   // Paginate the filtered items
   const pageinatedFilterFoods = _.chunk(filterFoods, pageSize);
 
-  console.log("Total items:", totalItems);
-  console.log("Filter page count:", filterPageCount);
-  console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
+  // console.log("Total items:", totalItems);
+  // console.log("Filter page count:", filterPageCount);
+  // console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
 
   return (
     <section className="lg:py-48 py-24">
@@ -91,13 +92,15 @@ export default function MenuSection({ sectionTitle }) {
         </ul>
         {loading ? (
           <span>Loading...</span>
-        ) :  filterFoods.length > 0 ?(
+        ) : filterFoods.length > 0 ? (
           <>
-            <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
-              {pageinatedFilterFoods[page - 1]?.map((food, index) => (
-                <MenuItem key={food.id} food={food} index={index} />
-              ))}
-            </div>
+            <AnimatePresence>
+              <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
+                {pageinatedFilterFoods[page - 1]?.map((food, index) => (
+                  <MenuItem key={food.id} food={food} index={index} />
+                ))}
+              </div>
+            </AnimatePresence>
             <div className="flex m-auto py-10">
               <PaginationSection
                 activePage={page}
@@ -106,7 +109,7 @@ export default function MenuSection({ sectionTitle }) {
               />
             </div>
           </>
-        ): (
+        ) : (
           <p className="text-center">No items found</p>
         )}
       </div>
