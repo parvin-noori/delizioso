@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { slideUp } from "../Banner/Banner";
 import ReserveImg from "../../assets/imgs/reserve.png";
+import CircleImg from "../cirecleImg/CircleImg";
 
 export default function Reservation() {
   return (
@@ -10,33 +11,18 @@ export default function Reservation() {
 
         <div className="relative m-auto order-last  lg:order-first mt-16 lg:mt-0">
           <div className="xl:size-[880px] lg:size-[680px] md:size-[500px] sm:size-[400px] size-[300px] rounded-full bg-transparent border border-black/20 aspect-square relative lg:-translate-x-[100px] ">
-            <div className="size-9/12 rounded-full bg-orange-100  aspect-square absolute !transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2">
-              <motion.img
-                initial={{ opacity: 0, rotate: 20, x: -200, y: 100 }}
-                whileInView={{ opacity: 1, rotate: 0, x: 0, y: 0 }}
-                transition={{ duration: 0.8 }}
-                src={ReserveImg}
-                className="absolute z-10 size-10/12 !transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2"
-              />
-            </div>
-            <div className="size-2/12 rounded-full bg-orange-100  aspect-square absolute top-0 lg:right-32 right-16">
-              <motion.img
-                initial={{ opacity: 0, rotate: 20, x: -200, y: 100 }}
-                whileInView={{ opacity: 1, rotate: 0, x: 0, y: 0 }}
-                transition={{ duration: 0.8 }}
-                src={ReserveImg}
-                className="absolute z-10 size-10/12 !transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2"
-              />
-            </div>
-            <div className="size-2/12 rounded-full bg-orange-100  aspect-square absolute bottom-0 lg:left-32 left-16">
-              <motion.img
-                initial={{ opacity: 0, rotate: 20, x: -200, y: 100 }}
-                whileInView={{ opacity: 1, rotate: 0, x: 0, y: 0 }}
-                transition={{ duration: 0.8 }}
-                src={ReserveImg}
-                className="absolute z-10 size-10/12 !transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2"
-              />
-            </div>
+            <CircleImg
+              src={ReserveImg}
+              containerClasses="size-9/12 !transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2"
+            />
+            <CircleImg
+              src={ReserveImg}
+              containerClasses="size-2/12 top-0 lg:right-32 right-16"
+            />
+            <CircleImg
+              src={ReserveImg}
+              containerClasses="size-2/12 bottom-0 lg:left-32 left-16"
+            />
           </div>
         </div>
         {/* text section  */}
