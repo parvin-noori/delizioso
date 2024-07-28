@@ -59,7 +59,7 @@ export default function MenuSection({ sectionTitle }) {
   // console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
 
   return (
-    <section className="lg:py-48 py-24">
+    <section className="lg:py-42 py-24">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
         <span className="md:text-[80px] text-5xl text-center font-bold font-tinos capitalize">
           {sectionTitle}

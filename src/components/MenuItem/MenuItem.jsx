@@ -25,14 +25,14 @@ export default function MenuItem({ food, index }) {
       initial="hidden"
       animate="show"
       exit="hidden"
-      className="foodCard group bg-gray-50 p-4 hover:shadow-md duration-200 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
+      className="foodCard group bg-gray-50 p-4 hover:shadow-sm duration-200 md:p-8 rounded-[40px] md:rounded-[80px] text-center sm:space-y-6 space-y-3"
     >
       <img
         src={food.img}
         alt={food.title}
         className="m-auto size-84 aspect-square group-hover:scale-110 group-hover:rotate-12 drop-shadow-lg duration-700"
       />
-      <span className="lg:text-4xl md:text-3xl text-xl font-semibold text-nowrap">
+      <span className="lg:text-4xl md:text-3xl text-xl font-semibold line-clamp-1">
         {food.title}
       </span>
       <p className="leading-8 line-clamp-2 lg:line-clamp-3">{food.desc}</p>

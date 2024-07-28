@@ -20,7 +20,7 @@ export const slideUp = (delay) => {
 
 export default function Banner() {
   return (
-    <section className=" lg:py-20 py-5 bg-green-50 overflow-x-hidden">
+    <section className=" lg:py-20 py-5 bg-green-50 overflow-hidden">
       <div className="container grid lg:grid-cols-2 items-center lg:gap-20 space-y-36 lg:space-y-0 justify-center">
         {/* img secion  */}
         <div className="relative  max-w-[350px] sm:max-w-[500px] m-auto lg:max-w-full order-last lg:order-first mt-16 lg:mt-0">
