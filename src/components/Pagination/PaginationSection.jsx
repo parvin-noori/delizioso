@@ -53,7 +53,7 @@ export default function PaginationSection({ activePage, setPage, pages }) {
                 index + 1 === activePage
                   ? "bg-primaryOrange text-white "
                   : "bg-orange-100 text-primaryOrange"
-              } rounded-xl border-opacity-0 cursor-pointer hover:border-opacity-100 border-primaryOrange hover:text-primaryOrange hover:bg-transparent`}
+              } rounded-xl border border-transparent cursor-pointer hover:border-primaryOrange hover:text-primaryOrange hover:bg-transparent`}
               isActive={index + 1 === activePage}
             >
               {index + 1}
