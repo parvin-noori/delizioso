@@ -21,7 +21,7 @@ export default function Chefs() {
           our greatest chef
         </span>
         <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-          {chefs.map((chef,index) => (
+          {chefs.slice(0,3).map((chef,index) => (
             <motion.div
               variants={slideUp(index * 0.1)}
               initial="hidden"
