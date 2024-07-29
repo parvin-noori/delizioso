@@ -25,7 +25,7 @@ export default function Chefs() {
             <motion.div
               variants={slideUp(index * 0.1)}
               initial="hidden"
-              whileInView="show"
+              animate="show"
               key={chef.id}
               className="flex group  flex-col space-y-10 capitalize items-center"
             >

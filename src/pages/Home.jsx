@@ -1,5 +1,6 @@
 import Banner from "@/components/Banner/Banner";
 import Chefs from "@/components/Chefs/Chefs";
+import CustomersReview from "@/components/customersReview/CustomersReview";
 import Hero from "@/components/Hero/Hero";
 import MenuSection from "@/components/Menu/MenuSection";
 import Reservation from "@/components/reservation/Reservation";
@@ -13,6 +14,7 @@ export default function Home() {
       <MenuSection sectionTitle="our popular menu" />
       <Reservation />
       <Chefs />
+      <CustomersReview/>
     </>
   );
 }
