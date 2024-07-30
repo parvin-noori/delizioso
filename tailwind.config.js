@@ -23,6 +23,13 @@ module.exports = {
       },
     },
     extend: {
+      boxShadow: {
+        shadowInset:
+          " inset 0 0 35px 5px rgba(0,0,0,0.25), inset 0 2px 1px 1px rgba(255,255,255,0.9), inset 0 -2px 1px rgba(0,0,0,0.25)",
+      },
+      backgroundImage: {
+        serviceHourseBg: "url('src/assets/imgs/serviceHourse.png')",
+      },
       fontFamily: {
         poppins: ["Poppins", "sans-serif"],
         tinos: ["Tinos", "sans-serif"],

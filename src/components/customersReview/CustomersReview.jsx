@@ -66,13 +66,6 @@ export default function CustomersReview() {
             </span>
           </div>
           <div className="flex gap-20">
-            {/* {customers.map((cutomer, index) => (
-              <img
-                key={customers.id}
-                src={cutomer.image}
-                className={`absolute size-${index * 0.6} bottom-${index * 10} right-${index*10}`}
-              />
-            ))} */}
             <img
               src={Customer6}
               alt=""

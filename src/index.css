@@ -78,3 +78,9 @@
     @apply text-brown font-light;
   }
 }
+.semi-circle{
+  clip-path: ellipse(50% 100% at 50% 0);
+}
+.semi{
+  shape-outside: circle(50%);
+}
