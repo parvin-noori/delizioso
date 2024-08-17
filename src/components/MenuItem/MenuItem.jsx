@@ -1,6 +1,9 @@
 import { motion } from "framer-motion";
 import { slideUp } from "../Banner/Banner";
 import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, removeFromCart, decreaseCart } from "@/features/cartSlice";
+import { FaTrash } from "react-icons/fa";
 
 export const slideDown = (delay) => {
   return {
@@ -20,11 +23,22 @@ export const slideDown = (delay) => {
 };
 
 export default function MenuItem({ food, index }) {
-  const [addedToCart, setAddedToCart] = useState(false);
-  function handleAddFood(e) {
-    console.log(e.target);
-    setAddedToCart(true);
+  const dispatch = useDispatch();
+  const cart = useSelector((state) => state.cart);
+
+  function handleAddFood(product) {
+    dispatch(addToCart(product));
   }
+  function handleDecreaseFood(product) {
+    dispatch(decreaseCart(product));
+    console.log(cartItem.cartQuantity)
+  }
+
+  function handleRemoveFood(product) {
+    dispatch(removeFromCart(product));
+  }
+  const cartItem = cart.cartItems.find((item) => item.id === food.id);
+
   return (
     <motion.div
       variants={slideUp(index * 0.1)}
@@ -47,15 +61,35 @@ export default function MenuItem({ food, index }) {
           ${food.price}
         </span>
         <div className="sm:w-36 flex items-center justify-around">
-          {addedToCart ? (
+          {cartItem ? (
             <div className="flex gap-3 items-center justify-around">
-              <button className="bg-primaryOrange text-white text-2xl rounded-full size-10 flex items-center justify-center">-</button>
-              <input type="text" className=" bg-transparent size-10  text-center" value="1"/>
-              <button className="bg-primaryOrange rounded-full text-2xl text-white flex items-center justify-center size-10">+</button>
+              {cartItem.cartQuantity > 1 ? (
+                <button
+                  onClick={() => handleDecreaseFood(food)}
+                  className="bg-primaryOrange text-white text-2xl rounded-full size-10 flex items-center justify-center"
+                >
+                  -
+                </button>
+              ) : (
+                <button
+                  onClick={() => handleRemoveFood(food)}
+                  className="bg-primaryOrange text-white  rounded-full size-10 flex items-center justify-center"
+                >
+                  <FaTrash />
+                </button>
+              )}
+
+              <span>{cartItem.cartQuantity}</span>
+              <button
+                onClick={() => handleAddFood(food)}
+                className="bg-primaryOrange rounded-full text-2xl text-white flex items-center justify-center size-10"
+              >
+                +
+              </button>
             </div>
           ) : (
             <button
-              onClick={(e) => handleAddFood(e)}
+              onClick={() => handleAddFood(food)}
               className="text-white hover:scale-110 duration-200 bg-primaryOrange rounded-full sm:py-4 sm:w-full size-7 sm:size-auto flex items-center justify-center"
             >
               <span className="hidden sm:block">order now</span>
