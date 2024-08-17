@@ -37,10 +37,10 @@ export default function MenuItem({ food, index }) {
       </span>
       <p className="leading-8 line-clamp-2 lg:line-clamp-3">{food.desc}</p>
       <div className="flex items-center justify-around ">
-        <span className="text-2xl font-semibold text-primaryOrange md:text-black">
+        <span className="md:text-2xl font-semibold text-primaryOrange md:text-black">
           ${food.price}
         </span>
-        <button className="text-white hover:scale-110 duration-200 bg-primaryOrange rounded-full sm:py-4 sm:px-10 size-10 sm:size-auto flex items-center justify-center">
+        <button className="text-white hover:scale-110 duration-200 bg-primaryOrange rounded-full sm:py-4 sm:px-10 size-7 sm:size-auto flex items-center justify-center">
           <span className="hidden sm:block">order now</span>
           <span className="block sm:hidden">+</span>
         </button>

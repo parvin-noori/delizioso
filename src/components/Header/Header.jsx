@@ -3,6 +3,9 @@ import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbLayoutGridAdd } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import { animate, motion } from "framer-motion";
+import Cart from "../cart/Cart";
+import { useEffect, useState } from "react";
+import Overlay from "../Overlay";
 
 const MainMenu = [
   {
@@ -61,6 +64,9 @@ const slideDown = (delay) => {
 };
 
 export default function Header() {
+  const [showCart, setShowCart] = useState(false);
+
+
   return (
     <header className="header py-10">
       <div className="container">
@@ -70,7 +76,6 @@ export default function Header() {
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.7 }}
           >
-            
             <NavLink to="/" className="flex items-center gap-3">
               <Avatar>
                 <AvatarImage src="https://github.com/sdf.png" />
@@ -95,7 +100,9 @@ export default function Header() {
                   <NavLink
                     to={item.path}
                     className={({ isActive }) =>
-                      isActive ? "text-primaryOrange" : "hover:text-primaryOrange"
+                      isActive
+                        ? "text-primaryOrange"
+                        : "hover:text-primaryOrange"
                     }
                   >
                     {item.title}
@@ -110,6 +117,7 @@ export default function Header() {
               variants={slideDown(0.7)}
               initial="initial"
               animate="animate"
+              onClick={() => setShowCart(true)}
             >
               <span className="badge bg-red-500 text-white size-4 flex items-center justify-center rounded-full text-[10px] absolute right-1 top-1">
                 3
@@ -135,6 +143,9 @@ export default function Header() {
           </div>
         </div>
       </div>
+
+      <Cart showCart={showCart} setShowCart={setShowCart}/>
+      {showCart && <Overlay/>}
     </header>
   );
 }
