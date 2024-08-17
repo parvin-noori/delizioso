@@ -31,7 +31,6 @@ export default function Cart({ showCart, setShowCart }) {
   }
   function handleDecreaseFood(product) {
     dispatch(decreaseCart(product));
-    console.log(cartItem.cartQuantity);
   }
 
   function handleRemoveFood(product) {

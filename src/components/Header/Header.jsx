@@ -4,8 +4,10 @@ import { TbLayoutGridAdd } from "react-icons/tb";
 import { NavLink } from "react-router-dom";
 import { animate, motion } from "framer-motion";
 import Cart from "../cart/Cart";
-import { useEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useState } from "react";
 import Overlay from "../Overlay";
+import { useDispatch, useSelector } from "react-redux";
+import { getTotal } from "@/features/cartSlice";
 
 const MainMenu = [
   {
@@ -65,7 +67,12 @@ const slideDown = (delay) => {
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
+  const { cartTotalQuantity } = useSelector((state) => state.cart);
+  const dispatch = useDispatch();
 
+  useLayoutEffect(() => {
+    dispatch(getTotal());
+  }, [dispatch]);
 
   return (
     <header className="header py-10">
@@ -120,7 +127,7 @@ export default function Header() {
               onClick={() => setShowCart(true)}
             >
               <span className="badge bg-red-500 text-white size-4 flex items-center justify-center rounded-full text-[10px] absolute right-1 top-1">
-                3
+                {cartTotalQuantity}
               </span>
               <MdOutlineShoppingCart className="text-xl" />
             </motion.button>
@@ -144,8 +151,8 @@ export default function Header() {
         </div>
       </div>
 
-      <Cart showCart={showCart} setShowCart={setShowCart}/>
-      {showCart && <Overlay/>}
+      <Cart showCart={showCart} setShowCart={setShowCart} />
+      {showCart && <Overlay />}
     </header>
   );
 }
