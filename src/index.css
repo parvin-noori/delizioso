@@ -78,9 +78,25 @@
     @apply text-brown font-light;
   }
 }
-.semi-circle{
+.semi-circle {
   clip-path: ellipse(50% 100% at 50% 0);
 }
-.semi{
+.semi {
   shape-outside: circle(50%);
+}
+.mySwiper .swiper-slide-active{
+  bottom:0
+}
+.mySwiper .swiper-slide-prev,
+.mySwiper .swiper-slide-next {
+  transform: scale(0.8);
+  bottom: 1rem;
+}
+.mySwiper .swiper-slide-next + .swiper-slide {
+  transform: scale(0.7);
+  bottom:2rem
+}
+.mySwiper .swiper-slide-next + .swiper-slide + .swiper-slide {
+  transform: scale(0.6);
+  bottom:3rem
 }
