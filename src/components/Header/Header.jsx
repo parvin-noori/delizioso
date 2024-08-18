@@ -67,12 +67,13 @@ const slideDown = (delay) => {
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
-  const { cartTotalQuantity } = useSelector((state) => state.cart);
+
+  const { cartTotalQuantity, cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
 
   useLayoutEffect(() => {
     dispatch(getTotal());
-  }, [dispatch]);
+  }, [dispatch, cartItems]);
 
   return (
     <header className="header py-10">

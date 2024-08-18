@@ -21,7 +21,7 @@ const cartSlice = createSlice({
         state.cartItems[itemIndex].cartQuantity += 1;
       } else {
         const tempProduct = { ...payload, cartQuantity: 1 };
-        state.cartItems.push(tempProduct)
+        state.cartItems.push(tempProduct);
       }
       localStorage.setItem("cartItems", JSON.stringify(state.cartItems));
     },
@@ -54,9 +54,9 @@ const cartSlice = createSlice({
       let { total, quantity } = state.cartItems.reduce(
         (cartTotal, cartItem) => {
           const { price, cartQuantity } = cartItem;
-          const itemTotla = cartQuantity * price;
+          const itemTotal = price * cartQuantity;
 
-          cartTotal.total += itemTotla;
+          cartTotal.total += itemTotal;
           cartTotal.quantity += cartQuantity;
 
           return cartTotal;
@@ -66,6 +66,7 @@ const cartSlice = createSlice({
           quantity: 0,
         }
       );
+
       state.cartTotalAmout = total;
       state.cartTotalQuantity = quantity;
     },
