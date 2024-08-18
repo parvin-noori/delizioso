@@ -1,12 +1,25 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useLayoutEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addToCart, removeFromCart, decreaseCart } from "@/features/cartSlice";
+import {
+  addToCart,
+  removeFromCart,
+  decreaseCart,
+  clearCart,
+} from "@/features/cartSlice";
 import { FaTrash } from "react-icons/fa";
+import { RiCloseLargeLine } from "react-icons/ri";
+import emptyCart from "../../assets/imgs/emptyCart.svg";
+import { getTotal } from "@/features/cartSlice";
 
 export default function Cart({ showCart, setShowCart }) {
   const drawerRef = useRef(null);
   const cart = useSelector((state) => state.cart);
+  const { cartTotalQuantity, cartItems } = cart;
   const dispatch = useDispatch();
+
+  useLayoutEffect(() => {
+    dispatch(getTotal());
+  }, [dispatch, cartItems]);
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -17,8 +30,10 @@ export default function Cart({ showCart, setShowCart }) {
 
     if (showCart) {
       document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
     } else {
       document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "";
     }
 
     return () => {
@@ -38,59 +53,90 @@ export default function Cart({ showCart, setShowCart }) {
     dispatch(removeFromCart(product));
   }
 
+  function handleClearCart(product) {
+    dispatch(clearCart());
+  }
+
   return (
     <div
       ref={drawerRef}
-      className={`bg-white fixed right-0 min-w-80 top-0 bottom-0 z-50 ${
+      className={`bg-white fixed right-0 min-w-80 top-0 flex flex-col bottom-0 z-50 h-full ${
         showCart ? "translate-x-0" : "translate-x-full"
       }  transform transition-transform duration-700`}
     >
+      <div className="cart-header flex items-center justify-between p-4 shadow-lg">
+        <div className="flex items-center gap-3">
+          <span>my cart</span>
+          {cart.cartItems.length > 0 && (
+            <>
+              <span className="text-sm">{cartTotalQuantity} items</span>
+              <button
+                className="text-sm bg-gray-200 p-2 rounded-full"
+                onClick={handleClearCart}
+              >
+                <FaTrash />
+              </button>
+            </>
+          )}
+        </div>
+        <RiCloseLargeLine />
+      </div>
       {cart.cartItems.length === 0 ? (
-        <span>cart is empty</span>
+        <div className="h-full items-center justify-center flex-col flex">
+          <img src={emptyCart} className="size-52" />
+          <span className="font-semibold">your cart is empty :( </span>
+        </div>
       ) : (
-        <ul className="">
-          {cart.cartItems.map((item,index) => (
-            <li
-              key={item.id}
-              className={`p-3 flex items-center gap-3 ${
-                cart.cartItems.length - 1 !== index ? "shadow-sm" : ""
-              }`}
-            >
-              <img src={item.img} alt={item.title} className="size-28" />
-              <div className="flex flex-col gap-3 flex-grow">
-                <span className="font-semibold">{item.title}</span>
-                <div className="flex items-center justify-between">
-                  <span className="text-primaryOrange ">${item.price}</span>
-                  <div className="flex gap-3 items-center justify-around ms-auto">
-                    {item.cartQuantity > 1 ? (
-                      <button
-                        onClick={() => handleDecreaseFood(item)}
-                        className="bg-primaryOrange text-white text-xl rounded-full size-9 flex items-center justify-center"
-                      >
-                        -
-                      </button>
-                    ) : (
-                      <button
-                        onClick={() => handleRemoveFood(item)}
-                        className="bg-primaryOrange text-white text-sm  rounded-full size-9 flex items-center justify-center"
-                      >
-                        <FaTrash />
-                      </button>
-                    )}
+        <>
+          <div className="cart-body  overflow-y-auto flex-grow">
+          <ul className="">
+            {cart.cartItems.map((item, index) => (
+              <li
+                key={item.id}
+                className={`p-3 flex items-center gap-3 ${
+                  cart.cartItems.length - 1 !== index ? "shadow-sm" : ""
+                }`}
+              >
+                <img src={item.img} alt={item.title} className="size-20" />
+                <div className="flex flex-col gap-3 flex-grow">
+                  <span className="line-clamp-2">{item.title}</span>
+                  <div className="flex items-center justify-between">
+                    <span className="text-primaryOrange ">${item.price}</span>
+                    <div className="flex gap-4 items-center justify-around ms-auto">
+                      {item.cartQuantity > 1 ? (
+                        <button
+                          onClick={() => handleDecreaseFood(item)}
+                          className="bg-primaryOrange text-white text-xl rounded-full size-9 flex items-center justify-center"
+                        >
+                          -
+                        </button>
+                      ) : (
+                        <button
+                          onClick={() => handleRemoveFood(item)}
+                          className="bg-primaryOrange text-white text-sm  rounded-full size-9 flex items-center justify-center"
+                        >
+                          <FaTrash />
+                        </button>
+                      )}
 
-                    <span>{item.cartQuantity}</span>
-                    <button
-                      onClick={() => handleAddFood(item)}
-                      className="bg-primaryOrange rounded-full text-xl text-white flex items-center justify-center size-9"
-                    >
-                      +
-                    </button>
+                      <span className="text-xl">{item.cartQuantity}</span>
+                      <button
+                        onClick={() => handleAddFood(item)}
+                        className="bg-primaryOrange rounded-full text-xl text-white flex items-center justify-center size-9"
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </li>
-          ))}
-        </ul>
+              </li>
+            ))}
+          </ul>
+          </div>
+          <div className="cartFooter p-2 border border-t-1 border-gray flex flex-col">
+            <button className="btn-primary relative">continue <span className="bg-black/30 px-2 py-1 rounded-full absolute right-2 top-1/2 transform -translate-y-1/2">${cart.cartTotalAmout.toFixed(3)}</span></button>
+          </div>
+        </>
       )}
     </div>
   );

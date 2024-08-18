@@ -75,6 +75,8 @@ export default function Header() {
     dispatch(getTotal());
   }, [dispatch, cartItems]);
 
+
+
   return (
     <header className="header py-10">
       <div className="container">
