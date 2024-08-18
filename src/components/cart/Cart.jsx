@@ -71,7 +71,7 @@ export default function Cart({ showCart, setShowCart }) {
             <>
               <span className="text-sm">{cartTotalQuantity} items</span>
               <button
-                className="text-sm bg-gray-200 p-2 rounded-full"
+                className="text-sm bg-gray-100 p-2 rounded-full text-gray-500"
                 onClick={handleClearCart}
               >
                 <FaTrash />

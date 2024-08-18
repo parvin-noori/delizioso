@@ -62,18 +62,18 @@ export default function MenuItem({ food, index }) {
         </span>
         <div className="sm:w-36 flex items-center justify-around">
           {cartItem ? (
-            <div className="flex gap-3 items-center justify-around">
+            <div className="flex sm:gap-3 gap-2 items-center justify-around">
               {cartItem.cartQuantity > 1 ? (
                 <button
                   onClick={() => handleDecreaseFood(food)}
-                  className="bg-primaryOrange text-white text-2xl rounded-full size-10 flex items-center justify-center"
+                  className="bg-primaryOrange text-white sm:text-2xl rounded-full sm:size-10 size-7 flex items-center justify-center"
                 >
                   -
                 </button>
               ) : (
                 <button
                   onClick={() => handleRemoveFood(food)}
-                  className="bg-primaryOrange text-white  rounded-full size-10 flex items-center justify-center"
+                  className="bg-primaryOrange text-white sm:text-md text-xs  rounded-full sm:size-10 size-7 flex items-center justify-center"
                 >
                   <FaTrash />
                 </button>
@@ -82,7 +82,7 @@ export default function MenuItem({ food, index }) {
               <span>{cartItem.cartQuantity}</span>
               <button
                 onClick={() => handleAddFood(food)}
-                className="bg-primaryOrange rounded-full text-2xl text-white flex items-center justify-center size-10"
+                className="bg-primaryOrange rounded-full sm:text-2xl text-white flex items-center justify-center sm:size-10 size-7"
               >
                 +
               </button>

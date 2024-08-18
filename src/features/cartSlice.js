@@ -79,7 +79,7 @@ export const {
   decreaseCart,
   clearCart,
   getTotal,
-  ge,
+  getCartItemsQty
 } = cartSlice.actions;
 
 export default cartSlice.reducer;
