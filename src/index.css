@@ -84,7 +84,7 @@
 .semi {
   shape-outside: circle(50%);
 }
-.mySwiper .swiper-slide-active{
+/* .mySwiper .swiper-slide-active{
   bottom:0
 }
 .mySwiper .swiper-slide-prev,
@@ -99,4 +99,4 @@
 .mySwiper .swiper-slide-next + .swiper-slide + .swiper-slide {
   transform: scale(0.6);
   bottom:3rem
-}
+} */

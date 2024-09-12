@@ -1,0 +1,26 @@
+.customers-slider {
+  .swiper-slide-thumb-active {
+    .thumbnail-slide {
+      aspect-ratio: 1;
+      &:after {
+        content: "";
+        position: absolute;
+        width: 110%;
+        height: 110%;
+        @apply bg-primaryOrange;
+        z-index: -1;
+        border-radius: 100%;
+      }
+      &:before {
+        content: "";
+        position: absolute;
+        width: 120%;
+        height: 120%;
+        @apply bg-primaryOrange;
+        z-index: -2;
+        opacity: 0.5;
+        border-radius: 100%;
+      }
+    }
+  }
+}
