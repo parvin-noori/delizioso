@@ -20,7 +20,7 @@ export default function CustomersReview() {
     fetchCustomers();
   }, [customers]);
 
-  const sizes = ["55%", "70%", "85%", "100%", "85%", "70%", "55%"];
+  const sizes = ["60%", "70%", "80%", "85%", "80%", "70%", "60%"];
 
   return (
     <section className="lg:py-42 py-24 bg-gray-100 customers-slider">
@@ -37,7 +37,7 @@ export default function CustomersReview() {
             slidesPerView={1}
             thumbs={thumbSwiper ? { swiper: thumbSwiper } : undefined}
             modules={[Thumbs]}
-            className="mySwiper2 w-full flex-grow"
+            className="mySwiper2 w-full flex-grow pb-48"
           >
             {customers.map((item) => (
               <SwiperSlide className="flex justify-center" key={item.id}>
@@ -70,7 +70,7 @@ export default function CustomersReview() {
             slidesPerView={7}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="mySwiper w-full py-32"
+            className="mySwiper w-full pt-36 pb-10  px-6"
           >
             {customers.map((item, index) => {
               return (
@@ -81,7 +81,7 @@ export default function CustomersReview() {
                     transform: `translateY(-${Math.abs(100 - index * 32)}%)`, // فاصله عمودی برای نیم‌دایره
                   }}
                 >
-                  <div class="w-full thumbnail-slide relative flex items-center justify-center">
+                  <div class="w-full thumbnail-slide relative flex items-center justify-center aspect-square">
                     <img
                       src={item.image}
                       alt={item.name}
