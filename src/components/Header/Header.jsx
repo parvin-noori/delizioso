@@ -1,13 +1,13 @@
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import {  useLayoutEffect, useState } from "react";
+import { NavLink } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbLayoutGridAdd } from "react-icons/tb";
-import { NavLink } from "react-router-dom";
 import { animate, motion } from "framer-motion";
-import Cart from "../cart/Cart";
-import { useEffect, useLayoutEffect, useState } from "react";
-import Overlay from "../Overlay";
-import { useDispatch, useSelector } from "react-redux";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getTotal } from "@/features/cartSlice";
+import { Cart } from "../cart";
+import Overlay from "../Overlay";
 
 const MainMenu = [
   {
@@ -74,8 +74,6 @@ export default function Header() {
   useLayoutEffect(() => {
     dispatch(getTotal());
   }, [dispatch, cartItems]);
-
-
 
   return (
     <header className="header py-10">

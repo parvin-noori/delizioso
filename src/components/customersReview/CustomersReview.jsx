@@ -74,9 +74,17 @@ export default function CustomersReview() {
             onSwiper={setThumbsSwiper}
             spaceBetween={10}
             slidesPerView={7}
+            breakpoints={{
+              0: {
+                slidesPerView: 5,
+              },
+              992: {
+                slidesPerView: 7,
+              },
+            }}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="mySwiper w-full pt-36 pb-10  px-6"
+            className="mySwiper w-full !pt-36 !pb-10  !px-6"
           >
             {customers.map((item, index) => {
               return (
