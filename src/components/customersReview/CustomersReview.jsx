@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
 import { Swiper, SwiperSlide } from "swiper/react";
+import axios from "axios";
+import { Navigation, Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
-import { Navigation, Thumbs } from "swiper/modules";
 import "./customersReview.css";
 // import { motion } from "framer-motion";
 
@@ -47,11 +47,17 @@ export default function CustomersReview() {
                     alt={item.name}
                     className="size-64 mb-7"
                   />
-                  <span className="lg:text-4xl text-3xl font-semibold">{item.name}</span>
-                  <span className="lg:text-2xl text-xl text-black/70">{item.title}</span>
+                  <span className="lg:text-4xl text-3xl font-semibold">
+                    {item.name}
+                  </span>
+                  <span className="lg:text-2xl text-xl text-black/70">
+                    {item.title}
+                  </span>
 
                   <div className="max-w-xl">
-                    <span className="font-tinos lg:text-8xl text-5xl text-left">“</span>
+                    <span className="font-tinos lg:text-8xl text-5xl text-left">
+                      “
+                    </span>
                     <p className="text-center lg:text-2xl text-xl leading-10 text-brown">
                       {item.comment}
                     </p>
@@ -81,7 +87,7 @@ export default function CustomersReview() {
                     transform: `translateY(-${Math.abs(100 - index * 32)}%)`, // فاصله عمودی برای نیم‌دایره
                   }}
                 >
-                  <div class="w-full thumbnail-slide relative flex items-center justify-center aspect-square">
+                  <div className="w-full thumbnail-slide relative flex items-center justify-center aspect-square">
                     <img
                       src={item.image}
                       alt={item.name}

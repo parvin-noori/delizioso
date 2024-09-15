@@ -1,8 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import MenuItem from "../MenuItem/MenuItem";
+import { MenuItem } from "../MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
-import PaginationSection from "../Pagination/PaginationSection";
+import { PaginationSection } from "../Pagination";
 import _ from "lodash";
 import { AnimatePresence } from "framer-motion";
 
