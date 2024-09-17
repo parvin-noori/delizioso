@@ -1,15 +1,18 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "./layouts/mainLayout/MainLayout";
+import IdentityLayout from "./layouts/identityLayout/IdentityLayout";
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
+import SignUp from "./pages/SignUp";
 
 const router = createBrowserRouter([
   {
+    path: "/",
     element: <MainLayout />,
     children: [
       {
-        path: "/",
         element: <Home />,
+        index: true,
       },
       {
         path: "/menu",
@@ -17,7 +20,15 @@ const router = createBrowserRouter([
       },
     ],
   },
+  {
+    element: <IdentityLayout />,
+    children: [
+      {
+        path: "/signup",
+        element: <SignUp />,
+      },
+    ],
+  },
 ]);
 
-
-export default router
+export default router;
