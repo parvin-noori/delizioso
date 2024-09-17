@@ -1,5 +1,8 @@
+import { FormCol } from "@/components/FormCol";
 export default function Login() {
   return (
-    <div>Login</div>
-  )
+    <>
+      <FormCol formType="login"/>
+    </>
+  );
 }

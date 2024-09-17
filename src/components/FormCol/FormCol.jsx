@@ -1,37 +1,25 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Input } from "../input";
-import { CheckboxWrapper } from "../checkboxWrapper";
+import { SignUpForm } from "@/components/signUpForm";
+import { LoginForm } from "../loginForm";
 
-export default function FormCol() {
+export default function FormCol(props) {
+  const { formType } = props;
   return (
     <div className="flex flex-col p-16">
-      <span className="text-4xl font-semibold mb-4">sign up</span>
+      <span className="text-4xl font-semibold mb-4">
+        {formType === "signup" ? "Sign up" : "Login"}
+      </span>
       <p className="mb-10">
         don't have an account?{" "}
-        <Link to="/login" className="text-blue-500">
-          Log in
+        <Link
+          to={formType === "signup" ? "/login" : "/signup"}
+          className="text-blue-500"
+        >
+          {formType === "signup" ? " Log in" : " Sign up"}
         </Link>
       </p>
-      <form action="">
-        <div className="space-y-8">
-          <Input type="text" placeholder="Full name" />
-          <Input type="email" placeholder="Email address" />
-          <Input type="password" placeholder="Password" />
-          <div className="flex text-sm justify-between items-center">
-            <CheckboxWrapper />
-            <Link className="capitalize " to="/">
-              forget password?
-            </Link>
-          </div>
-          <button
-            type="submit"
-            className="bg-primaryOrange text-white rounded-md p-2 w-full"
-          >
-            Log in
-          </button>
-        </div>
-      </form>
+      {formType === "signup" ? <SignUpForm /> : <LoginForm />}
     </div>
   );
 }
