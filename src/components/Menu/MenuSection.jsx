@@ -4,7 +4,6 @@ import { MenuItem } from "../MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
 import { PaginationSection } from "../Pagination";
 import _ from "lodash";
-import { AnimatePresence } from "framer-motion";
 
 export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
@@ -94,13 +93,12 @@ export default function MenuSection({ sectionTitle }) {
           <span>Loading...</span>
         ) : filterFoods.length > 0 ? (
           <>
-            <AnimatePresence>
-              <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
-                {pageinatedFilterFoods[page - 1]?.map((food, index) => (
-                  <MenuItem key={food.id} food={food} index={index} />
-                ))}
-              </div>
-            </AnimatePresence>
+            <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
+              {pageinatedFilterFoods[page - 1]?.map((food, index) => (
+                <MenuItem key={food.id} food={food} index={index} />
+              ))}
+            </div>
+
             <div className="flex m-auto py-10">
               <PaginationSection
                 activePage={page}

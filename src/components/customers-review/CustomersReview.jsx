@@ -6,7 +6,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./customersReview.css";
-// import { motion } from "framer-motion";
+
 
 export default function CustomersReview() {
   const [customers, setCustomers] = useState([]);

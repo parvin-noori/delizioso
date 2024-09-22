@@ -1,7 +1,5 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { motion } from "framer-motion";
-import { slideUp } from "../Banner/Banner";
 
 export default function Chefs() {
   const [chefs, setChefs] = useState([]);
@@ -21,11 +19,8 @@ export default function Chefs() {
           our greatest chef
         </span>
         <div className="grid md:grid-cols-3 grid-cols-2 gap-10">
-          {chefs.slice(0,3).map((chef,index) => (
-            <motion.div
-              variants={slideUp(index * 0.1)}
-              initial="hidden"
-              animate="show"
+          {chefs.slice(0, 3).map((chef, index) => (
+            <div
               key={chef.id}
               className="flex group  flex-col space-y-10 capitalize items-center"
             >
@@ -36,7 +31,7 @@ export default function Chefs() {
               />
               <span className="font-semibold text-2xl">{chef.name}</span>
               <span className="text-2xl text-gray-400">{chef.title}</span>
-            </motion.div>
+            </div>
           ))}
         </div>
         <button className="btn-primary mt-12  bg-primaryOrange md:py-5 md:px-20 text-xl m-auto text-nowrap hover:scale-110 duration-200">

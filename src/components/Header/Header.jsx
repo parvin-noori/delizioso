@@ -1,9 +1,9 @@
-import {  useLayoutEffect, useState } from "react";
+import { useLayoutEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbLayoutGridAdd } from "react-icons/tb";
-import { animate, motion } from "framer-motion";
+
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getTotal } from "@/features/cartSlice";
 import { Cart } from "../cart";
@@ -79,11 +79,7 @@ export default function Header() {
     <header className="header py-10">
       <div className="container">
         <div className="grid lg:grid-cols-6 grid-cols-2 items-center justify-between">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.8, delay: 0.7 }}
-          >
+          <div>
             <NavLink to="/" className="flex items-center gap-3">
               <Avatar>
                 <AvatarImage src="https://github.com/sdf.png" />
@@ -93,14 +89,11 @@ export default function Header() {
                 delizi<span className="text-primaryOrange">oso</span>
               </h1>
             </NavLink>
-          </motion.div>
+          </div>
           <div className="col-span-4 lg:block hidden">
             <ul className="flex items-center  justify-around">
               {MainMenu.map((item) => (
-                <motion.li
-                  variants={slideDown(item.delay)}
-                  initial="initial"
-                  animate="animate"
+                <li
                   key={item.id}
                   className="capitalize"
                   data-delay={item.delay}
@@ -115,39 +108,26 @@ export default function Header() {
                   >
                     {item.title}
                   </NavLink>
-                </motion.li>
+                </li>
               ))}
             </ul>
           </div>
           <div className=" flex items-center lg:gap-5 gap-2 justify-end">
-            <motion.button
+            <button
               className="size-12 aspect-square flex items-center justify-center bg-gray-50 rounded-full relative"
-              variants={slideDown(0.7)}
-              initial="initial"
-              animate="animate"
               onClick={() => setShowCart(true)}
             >
               <span className="badge bg-red-500 text-white size-4 flex items-center justify-center rounded-full text-[10px] absolute right-1 top-1">
                 {cartTotalQuantity}
               </span>
               <MdOutlineShoppingCart className="text-xl" />
-            </motion.button>
-            <motion.button
-              className="btn-primary hidden lg:block text-nowrap"
-              variants={slideDown(0.8)}
-              initial="initial"
-              animate="animate"
-            >
+            </button>
+            <button className="btn-primary hidden lg:block text-nowrap">
               log in
-            </motion.button>
-            <motion.button
-              className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl"
-              variants={slideDown(0.8)}
-              initial="initial"
-              animate="animate"
-            >
+            </button>
+            <button className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl">
               <TbLayoutGridAdd />
-            </motion.button>
+            </button>
           </div>
         </div>
       </div>

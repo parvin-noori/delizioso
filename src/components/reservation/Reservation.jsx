@@ -1,7 +1,5 @@
-import { motion } from "framer-motion";
-import { slideUp } from "../Banner/Banner";
 import ReserveImg from "../../assets/imgs/reserve.png";
-import CircleImg from "../cirecleImg/CircleImg";
+import CircleImg from "../cirecle-img/CircleImg";
 
 export default function Reservation() {
   return (
@@ -27,33 +25,18 @@ export default function Reservation() {
         </div>
         {/* text section  */}
         <div className="space-y-16 capitalize text-xl order-first lg:order-last  lg:max-w-lg md:max-w-3xl sm:max-w-xl max-w-sm">
-          <motion.h2
-            variants={slideUp(0.5)}
-            initial="hidden"
-            whileInView="show"
-            className="lg:text-[80px] text-6xl font-semibold text-balance font-tinos leading-[90px]"
-          >
+          <h2 className="lg:text-[80px] text-6xl font-semibold text-balance font-tinos leading-[90px]">
             let's reserve <span className="text-primaryOrange">a table</span>
-          </motion.h2>
-          <motion.p
-            variants={slideUp(1)}
-            initial="hidden"
-            whileInView="show"
-            className=" text-brown/70 leading-10 lg:text-xl tracking-wider"
-          >
+          </h2>
+          <p className=" text-brown/70 leading-10 lg:text-xl tracking-wider">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Facilisis
             ultricies at eleifend proin. Congue nibh nulla malesuada ultricies
             nec quam
-          </motion.p>
+          </p>
 
-          <motion.button
-            variants={slideUp(1.5)}
-            initial="hidden"
-            whileInView="show"
-            className="btn-primary mt-12  bg-primaryOrange md:py-5 md:px-20 font-normal text-nowrap"
-          >
+          <button className="btn-primary mt-12  bg-primaryOrange md:py-5 md:px-20 font-normal text-nowrap">
             reservation
-          </motion.button>
+          </button>
         </div>
       </div>
     </section>
