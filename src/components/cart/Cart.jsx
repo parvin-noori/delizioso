@@ -61,7 +61,7 @@ export default function Cart({ showCart, setShowCart }) {
     <div
       ref={drawerRef}
       className={`bg-white fixed right-0 min-w-80 top-0 flex flex-col bottom-0 z-50 h-full ${
-        showCart ? "translate-x-0" : "translate-x-full"
+        showCart ? "translate-x-0 visible" : "translate-x-full invisible"
       }  transform transition-transform duration-700`}
     >
       <div className="cart-header flex items-center justify-between p-4 shadow-lg">
