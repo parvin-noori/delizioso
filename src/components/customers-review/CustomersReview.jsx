@@ -7,7 +7,6 @@ import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./customersReview.css";
 
-
 export default function CustomersReview() {
   const [customers, setCustomers] = useState([]);
   const [thumbSwiper, setThumbsSwiper] = useState(null);
@@ -20,7 +19,35 @@ export default function CustomersReview() {
     fetchCustomers();
   }, [customers]);
 
-  const sizes = ["60%", "70%", "80%", "85%", "80%", "70%", "60%"];
+  const [sizes, setSizes] = useState([
+    "60%",
+    "70%",
+    "80%",
+    "85%",
+    "80%",
+    "70%",
+    "60%",
+  ]);
+
+  const [translateAmount, setTranslateAmount] = useState(32); // Base translate amount
+  useEffect(() => {
+    const handleSizes = () => {
+      if (window.innerWidth < 992) {
+        setSizes(["70%", "80%", "95%", "80%", "70%"]);
+        setTranslateAmount(50);
+      } else if (window.innerWidth > 992) {
+        // For large screens (greater than 992px), reset to default
+        setSizes(["60%", "70%", "80%", "85%", "80%", "70%", "60%"]);
+        setTranslateAmount(32);
+      }
+      // setSizes(["60%", "70%", "80%", "85%", "80%", "70%", "60%"]);
+      // setTranslateAmount(3);
+    };
+    handleSizes();
+
+    window.addEventListener("resize", handleSizes);
+    return () => window.addEventListener("resize", handleSizes);
+  }, []);
 
   return (
     <section className="lg:py-42 py-24 bg-gray-100 customers-slider">
@@ -35,6 +62,7 @@ export default function CustomersReview() {
             spaceBetween={10}
             centeredSlides={true}
             slidesPerView={1}
+            loop={true}
             thumbs={thumbSwiper ? { swiper: thumbSwiper } : undefined}
             modules={[Thumbs]}
             className="mySwiper2 w-full flex-grow lg:pb-48"
@@ -84,7 +112,7 @@ export default function CustomersReview() {
             }}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="mySwiper w-full !pt-36 !pb-10  !px-6"
+            className="mySwiper w-full !pt-36 !pb-10  md:!px-6 !px-2"
           >
             {customers.map((item, index) => {
               return (
@@ -92,7 +120,9 @@ export default function CustomersReview() {
                   key={item.id}
                   className={` flex items-center justify-center`}
                   style={{
-                    transform: `translateY(-${Math.abs(100 - index * 32)}%)`, // فاصله عمودی برای نیم‌دایره
+                    transform: `translateY(-${Math.abs(
+                      100 - index * translateAmount
+                    )}%)`, // فاصله عمودی برای نیم‌دایره
                   }}
                 >
                   <div className="w-full thumbnail-slide relative flex items-center justify-center aspect-square">
