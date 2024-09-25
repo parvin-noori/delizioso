@@ -3,11 +3,11 @@ export default function ServiceHours() {
   return (
     <section className="lg:py-42 py-24">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
-        <div className="flex flex-col items-center space-y-10 capitalize shadow-shadowInset bg-serviceHourseBg rounded-[7rem] py-20 text-white overflow-hidden">
+        <div className="flex flex-col items-center space-y-10 capitalize  md:px-0 px-4 md-text-start text-center md:bg-center bgp-70 bg-no-repeat bg-serviceHourseBg  rounded-[7rem] py-20 text-white overflow-hidden">
           <span className="lg:text-6xl font-tinos font-semibold text-center text-4xl">
             we are open from
           </span>
-          <div className="flex flex-col max-w-sm leading-10  text-xl ">
+          <div className="flex flex-col max-w-sm leading-10  text-xl md:text-start text-center">
             <span className="lg:text-4xl text-2xl font-semibold mb-5">
               monday - sunday
             </span>

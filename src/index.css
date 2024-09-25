@@ -100,3 +100,8 @@
   transform: scale(0.6);
   bottom:3rem
 } */
+@media (max-width: 768px) {
+  .bgp-70 {
+    background-position: 70%;
+  }
+}
