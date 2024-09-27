@@ -16,7 +16,7 @@ export default function LoginForm() {
         </div>
         <button
           type="submit"
-          className="bg-primaryOrange text-white rounded-md p-2 w-full"
+          className="bg-primaryOrange text-white rounded-md p-4 w-full"
         >
           login
         </button>
