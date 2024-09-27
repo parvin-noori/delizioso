@@ -6,8 +6,8 @@ import { LoginForm } from "../loginForm";
 export default function FormCol(props) {
   const { formType } = props;
   return (
-    <div className="justify-end flex">
-      <div className="flex flex-col w-4/6 ">
+    <div className="lg:justify-end lg:h-auto h-full py-10 lg:py-0 justify-center flex xl:col-span-6 lg:col-span-5">
+      <div className="flex flex-col  xl:w-4/6 w-5/6">
         <span className="text-4xl font-semibold mb-4">
           {formType === "signup" ? "Sign up" : "Login"}
         </span>
