@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { MdOutlineShoppingCart } from "react-icons/md";
 import { TbLayoutGridAdd } from "react-icons/tb";
+import { Link } from "react-router-dom";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { getTotal } from "@/features/cartSlice";
@@ -122,9 +123,12 @@ export default function Header() {
               </span>
               <MdOutlineShoppingCart className="text-xl" />
             </button>
-            <button className="btn-primary hidden lg:block text-nowrap">
+            <Link
+              to="/login"
+              className="btn-primary hidden lg:block text-nowrap"
+            >
               log in
-            </button>
+            </Link>
             <button className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl">
               <TbLayoutGridAdd />
             </button>

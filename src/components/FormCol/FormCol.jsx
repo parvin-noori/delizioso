@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { SignUpForm } from "@/components/signUpForm";
-import { LoginForm } from "../loginForm";
+import  SignUpForm  from "@/pages/signUp/SignUpForm";
+import  LoginForm  from "@/pages/login/LoginForm";
 
 export default function FormCol(props) {
   const { formType } = props;

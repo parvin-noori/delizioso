@@ -1,5 +1,5 @@
-import { Input } from "../input";
-import { CheckboxWrapper } from "../checkbox-wrapper";
+import { Input } from "@/components/input";
+import { CheckboxWrapper } from "@/components/checkbox-wrapper";
 import { Link } from "react-router-dom";
 
 export default function SignUpForm() {
