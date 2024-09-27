@@ -4,8 +4,8 @@ import { Link } from "react-router-dom";
 
 export default function LoginForm() {
   return (
-    <form id="signUpForm">
-      <div className="space-y-8">
+    <form id="signUpForm" className="h-full">
+      <div className="space-y-8 h-full flex flex-col">
         <Input type="email" placeholder="Email address" />
         <Input type="password" placeholder="Password" />
         <div className="flex text-sm justify-between items-center">
@@ -16,7 +16,7 @@ export default function LoginForm() {
         </div>
         <button
           type="submit"
-          className="bg-primaryOrange text-white rounded-md p-4 w-full"
+          className="bg-primaryOrange text-white rounded-md p-4 w-full md:!mt-8 !mt-auto"
         >
           login
         </button>
