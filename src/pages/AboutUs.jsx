@@ -7,11 +7,11 @@ import food3 from "@/assets/imgs/food3.png";
 export default function AboutUs() {
   return (
     <section className="py-24">
-      <div className="container md:space-y-24 space-y-10 ">
-        <div className="grid grid-cols-12 items-center lg:space-y-24 lg:gap-16">
-          <ImgSection img={chef2} direction="end" />
+      <div className="container space-y-24  ">
+        <div className="grid grid-cols-12 items-center lg:space-y-24 lg:gap-16 ">
+          <ImgSection img={chef2} direction="right" title="Our resturant"/>
           <ContentSection colWidth="5">
-            <h4 className="lg:text-7xl text-5xl font-tinos font-semibold">
+            <h4 className="lg:text-7xl lg:block hidden text-5xl font-tinos font-semibold">
               <span className="capitalize text-primaryOrange font-bold lg:block">
                 Our
               </span>{" "}
@@ -26,7 +26,7 @@ export default function AboutUs() {
             </p>
           </ContentSection>
         </div>
-        <div className="grid grid-cols-12 items-center space-y-24 lg:gap-16 ">
+        <div className="grid grid-cols-12 items-center  lg:gap-16 ">
           <ContentSection colWidth="5" order="inverse">
             <p className="leading-loose opacity-80  font-light text-xl">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
@@ -36,14 +36,20 @@ export default function AboutUs() {
               aspernatur aut odit aut fugit.
             </p>
           </ContentSection>
-          <ImgSection img={food3} direction="start" order="inverse" />
+          <ImgSection img={food3} direction="left" order="inverse" />
         </div>
         <div className="grid grid-cols-12 items-center lg:space-y-24 lg:gap-16">
-          <div className="lg:col-span-6 col-span-12 justify-center flex lg:pb-0 pb-10">
+          <div className="lg:col-span-6 col-span-12 justify-center flex lg:pb-0 pb-10 flex-col items-center">
+          <h4 className="lg:text-7xl text-5xl font-tinos font-semibold block lg:hidden">
+              <span className="capitalize text-primaryOrange font-bold block">
+                Owner
+              </span>{" "}
+              & Executive Chef
+            </h4>
             <img src={chef} alt="chef" className="rounded-2xl lg:rounded-none"/>
           </div>
           <ContentSection colWidth="6">
-            <h4 className="lg:text-7xl text-5xl font-tinos font-semibold">
+            <h4 className="lg:text-7xl text-5xl font-tinos font-semibold lg:block hidden">
               <span className="capitalize text-primaryOrange font-bold block">
                 Owner
               </span>{" "}
