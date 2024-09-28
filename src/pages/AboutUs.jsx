@@ -6,8 +6,8 @@ import food3 from "@/assets/imgs/food3.png";
 
 export default function AboutUs() {
   return (
-    <section className="py-24">
-      <div className="container space-y-24  ">
+    <section className="py-24 lg:py-28 xl:overflow-visible overflow-hidden">
+      <div className="container    space-y-24  ">
         <div className="grid grid-cols-12 items-center lg:space-y-24 lg:gap-16 ">
           <ImgSection img={chef2} direction="right" title="Our resturant"/>
           <ContentSection colWidth="5">
@@ -39,8 +39,8 @@ export default function AboutUs() {
           <ImgSection img={food3} direction="left" order="inverse" />
         </div>
         <div className="grid grid-cols-12 items-center lg:space-y-24 lg:gap-16">
-          <div className="lg:col-span-6 col-span-12 justify-center flex lg:pb-0 pb-10 flex-col items-center">
-          <h4 className="lg:text-7xl text-5xl font-tinos font-semibold block lg:hidden">
+          <div className="lg:col-span-6 col-span-12 justify-center flex lg:pb-0 pb-10 flex-col space-y-10 items-center">
+          <h4 className="lg:text-7xl text-5xl font-tinos font-semibold block lg:hidden text-center">
               <span className="capitalize text-primaryOrange font-bold block">
                 Owner
               </span>{" "}

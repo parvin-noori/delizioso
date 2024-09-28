@@ -3,7 +3,7 @@ export default function ImgSection(props) {
 
   return (
     <div
-      className={`lg:col-span-7 col-span-12 overflow-x-hidden${
+      className={`lg:col-span-7 col-span-12 ${
         order === "inverse" ? "lg:order-2 order-1" : "order-1"
       }`}
     >
