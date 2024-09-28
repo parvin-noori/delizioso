@@ -18,7 +18,7 @@ export default function ImgSection(props) {
         <img
           src={img}
           alt="img"
-          className="z-20 xl:w-[33rem] lg:size-[30rem] w-[15rem]"
+          className="z-20 xl:size-[33rem] lg:size-[30rem] size-[15rem]"
         />
       </div>
     </div>
