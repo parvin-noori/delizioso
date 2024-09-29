@@ -8,7 +8,7 @@ import _ from "lodash";
 export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
   const [activeCategory, setActiveCategory] = useState("all");
-  const url = "http://localhost:3000/products";
+  const url = "https://delizioso-api.vercel.app/products";
   const pageSize = 6; // Number of items per page
   const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
@@ -24,7 +24,7 @@ export default function MenuSection({ sectionTitle }) {
     const fetchCategories = async () => {
       try {
         const categoryResponse = await axios.get(
-          "http://localhost:3000/categories"
+          "https://delizioso-api.vercel.app/categories"
         );
         setCategories(categoryResponse.data);
       } catch (err) {

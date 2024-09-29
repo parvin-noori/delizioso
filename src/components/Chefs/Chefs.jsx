@@ -6,7 +6,7 @@ export default function Chefs() {
 
   useEffect(() => {
     const fetchChefs = async () => {
-      const response = await axios.get("http://localhost:3000/chefs");
+      const response = await axios.get("https://delizioso-api.vercel.app/chefs");
       const data = response.data;
       setChefs(data);
     };

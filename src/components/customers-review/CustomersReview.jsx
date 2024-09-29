@@ -12,7 +12,7 @@ export default function CustomersReview() {
   const [thumbSwiper, setThumbsSwiper] = useState(null);
   useEffect(() => {
     const fetchCustomers = async () => {
-      const response = await axios.get("http://localhost:3000/customers");
+      const response = await axios.get("https://delizioso-api.vercel.app/customers");
       const data = response.data;
       setCustomers(data);
     };

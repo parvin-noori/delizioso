@@ -36,6 +36,7 @@ export default function Hero() {
           />
           <img
             alt=""
+            src={Lettuce}
             className="absolute -top-14 rotate-[200deg] -left-9 sm:-left-16 sm:-top-18 xxl:-left-20 xl:-left-16 xxl:-top-18 xl:-top-14  z-0 size-52 sm:size-64 lg:size-max"
           />
           <img
