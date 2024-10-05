@@ -64,9 +64,9 @@ export default function MenuSection({ sectionTitle }) {
   // console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
 
   return (
-    <section className="lg:py-42 py-24">
+    <section className="lg:py-42 py-10">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
-        <span className="md:text-[80px] text-5xl text-center font-bold font-tinos capitalize">
+        <span className="lg:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           {sectionTitle}
         </span>
         <ul ref={menuRef} className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
@@ -74,7 +74,7 @@ export default function MenuSection({ sectionTitle }) {
             <a
               className={`${
                 activeCategory === "all" ? "bg-brown text-white" : "bg-gray-100"
-              } md:py-6 text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
+              } md:py-6 lg:text-lg text-base md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
               onClick={() => handleCategoryClick("all")}
             >
               all category
@@ -87,7 +87,7 @@ export default function MenuSection({ sectionTitle }) {
                   activeCategory === category.categoryName
                     ? "bg-brown text-white"
                     : "bg-gray-100"
-                } md:py-6 text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
+                } md:py-6 lg:text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
                 onClick={() => handleCategoryClick(category.categoryName)}
               >
                 {category.categoryName}
@@ -99,13 +99,13 @@ export default function MenuSection({ sectionTitle }) {
           <span>Loading...</span>
         ) : filterFoods.length > 0 ? (
           <>
-            <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-5">
+            <div className="menu grid lg:grid-cols-3 grid-cols-2 sm:gap-10 gap-3">
               {pageinatedFilterFoods[page - 1]?.map((food, index) => (
                 <MenuItem key={food.id} food={food} index={index} />
               ))}
             </div>
 
-            <div className="flex m-auto py-10">
+            <div className="flex m-auto lg:py-10">
               <PaginationSection
                 activePage={page}
                 setPage={setPage}

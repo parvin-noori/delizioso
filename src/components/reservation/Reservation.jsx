@@ -4,7 +4,7 @@ import CircleImg from "../cirecle-img/CircleImg";
 export default function Reservation() {
   return (
     <section className=" lg:py-64 py-5 bg-orange-50 overflow-x-hidden">
-      <div className=" grid lg:grid-cols-2 items-center xl:gap-72 lg:gap-44 space-y-36  lg:space-y-0 justify-center">
+      <div className=" grid lg:grid-cols-2 items-center xl:gap-72 lg:gap-44 space-y-10  lg:space-y-0 justify-center">
         {/* img secion  */}
 
         <div className="relative m-auto order-last  lg:order-first mt-16 lg:mt-0">
@@ -24,8 +24,8 @@ export default function Reservation() {
           </div>
         </div>
         {/* text section  */}
-        <div className="space-y-16 capitalize text-xl order-first lg:order-last  lg:max-w-lg md:max-w-3xl sm:max-w-xl max-w-sm">
-          <h2 className="lg:text-[80px] text-6xl font-semibold text-balance font-tinos leading-[90px]">
+        <div className="lg:space-y-16 capitalize text-xl order-first lg:order-last  lg:max-w-lg md:max-w-3xl sm:max-w-xl max-w-sm">
+          <h2 className="lg:text-[80px] ld:text-6xl text-4xl font-semibold text-balance font-tinos leading-[90px]">
             let's reserve <span className="text-primaryOrange">a table</span>
           </h2>
           <p className=" text-brown/70 leading-10 lg:text-xl tracking-wider">

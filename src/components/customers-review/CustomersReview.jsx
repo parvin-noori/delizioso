@@ -33,7 +33,7 @@ export default function CustomersReview() {
   useEffect(() => {
     const handleSizes = () => {
       if (window.innerWidth < 992) {
-        setSizes(["70%", "80%", "95%", "80%", "70%"]);
+        setSizes(["90%", "95%", "100%", "95%", "90%"]);
         setTranslateAmount(50);
       } else if (window.innerWidth > 992) {
         // For large screens (greater than 992px), reset to default
@@ -50,14 +50,14 @@ export default function CustomersReview() {
   }, []);
 
   return (
-    <section className="lg:py-42 py-24 bg-gray-100 customers-slider">
+    <section className="lg:py-42 py-10 bg-gray-100 customers-slider">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
-        <span className="md:text-[80px] text-5xl text-center font-bold font-tinos capitalize">
+        <span className="lg:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           our customers say
         </span>
 
         {/* swiper  */}
-        <div className="relative w-full lg:aspect-square p-5 flex flex-col space-y-10 items-center overflow-hidden">
+        <div className="relative w-full lg:aspect-square lg:p-5 flex flex-col space-y-10 items-center overflow-hidden">
           <Swiper
             spaceBetween={10}
             centeredSlides={true}
@@ -73,9 +73,9 @@ export default function CustomersReview() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="size-64 mb-7"
+                    className="lg:size-64 size-32 lg:mb-7"
                   />
-                  <span className="lg:text-4xl text-3xl font-semibold">
+                  <span className="lg:text-4xl text-2xl font-semibold">
                     {item.name}
                   </span>
                   <span className="lg:text-2xl text-xl text-black/70">
@@ -86,7 +86,7 @@ export default function CustomersReview() {
                     <span className="font-tinos lg:text-8xl text-5xl text-left">
                       “
                     </span>
-                    <p className="text-center lg:text-2xl text-xl leading-10 text-brown">
+                    <p className="text-center lg:text-2xl text-base  leading-10 text-brown">
                       {item.comment}
                     </p>
                     <span className="font-tinos lg:text-8xl text-5xl text-right transform rotate-180 float-end">
@@ -112,7 +112,7 @@ export default function CustomersReview() {
             }}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="mySwiper w-full !pt-36 !pb-10  md:!px-6 !px-2"
+            className="mySwiper w-full lg:!pt-36 !pt-20 !pb-10  md:!px-6 !px-2"
           >
             {customers.map((item, index) => {
               return (
