@@ -41,15 +41,28 @@ export default function MenuItem({ food, index }) {
                 <button
                   type="button"
                   onClick={() => handleDecreaseFood(food)}
-                  className="bg-primaryOrange   text-white sm:text-2xl rounded-full sm:size-10 size-7 flex items-center justify-center"
+                  className="bg-primaryOrange   text-white sm:text-2xl rounded-full sm:size-10 size-8 flex items-center justify-center"
                 >
-                  -
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke-width="2"
+                    stroke="currentColor"
+                    class="size-4"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      d="M5 12h14"
+                    />
+                  </svg>
                 </button>
               ) : (
                 <button
                   type="button"
                   onClick={() => handleRemoveFood(food)}
-                  className="bg-primaryOrange text-white sm:text-md text-xs  rounded-full sm:size-10 size-7 flex items-center justify-center"
+                  className="bg-primaryOrange text-white sm:text-md text-xs  rounded-full sm:size-10 size-8 flex items-center justify-center"
                 >
                   {/* <FaTrash /> */}
                   <svg
@@ -58,7 +71,7 @@ export default function MenuItem({ food, index }) {
                     viewBox="0 0 24 24"
                     strokeWidth={1.5}
                     stroke="currentColor"
-                    className="size-6"
+                    className="size-5"
                   >
                     <path
                       strokeLinecap="round"
@@ -73,19 +86,47 @@ export default function MenuItem({ food, index }) {
               <button
                 type="button"
                 onClick={() => handleAddFood(food)}
-                className="bg-primaryOrange   rounded-full sm:text-2xl text-white flex items-center justify-center sm:size-10 size-7"
+                className="bg-primaryOrange   rounded-full sm:text-2xl text-white flex items-center justify-center sm:size-10 size-8"
               >
-                +
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  className="size-4 "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15"
+                  />
+                </svg>
               </button>
             </div>
           ) : (
             <button
               type="button"
               onClick={() => handleAddFood(food)}
-              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-7 sm:size-auto flex items-center justify-center"
+              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-8 sm:size-auto flex items-center justify-center"
             >
               <span className="hidden sm:block">order now</span>
-              <span className="block sm:hidden">+</span>
+              <span className="block sm:hidden">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="2"
+                  stroke="currentColor"
+                  className="size-4 "
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M12 4.5v15m7.5-7.5h-15"
+                  />
+                </svg>
+              </span>
             </button>
           )}
         </div>

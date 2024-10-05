@@ -80,7 +80,7 @@ export default function Cart({ showCart, setShowCart }) {
                   viewBox="0 0 24 24"
                   strokeWidth="1.5"
                   stroke="currentColor"
-                  className="size-6"
+                  className="size-5"
                 >
                   <path
                     strokeLinecap="round"
@@ -92,22 +92,24 @@ export default function Cart({ showCart, setShowCart }) {
             </>
           )}
         </div>
-        {/* <RiCloseLargeLine /> */}
-        <svg
-          onClick={() => setShowCart(false)}
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 24 24"
-          strokeWidth="1.5"
-          stroke="currentColor"
-          className="size-6"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            d="M6 18 18 6M6 6l12 12"
-          />
-        </svg>
+
+        <button type="btn" className="p-3">
+          <svg
+            onClick={() => setShowCart(false)}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth="1.5"
+            stroke="currentColor"
+            className="size-5"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M6 18 18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
       </div>
       {cart.cartItems.length === 0 ? (
         <div className="h-full items-center justify-center flex-col flex">
@@ -136,7 +138,20 @@ export default function Cart({ showCart, setShowCart }) {
                             onClick={() => handleDecreaseFood(item)}
                             className="bg-primaryOrange text-white text-xl rounded-full size-9 flex items-center justify-center"
                           >
-                            -
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              fill="none"
+                              viewBox="0 0 24 24"
+                              stroke-width="2"
+                              stroke="currentColor"
+                              class="size-4"
+                            >
+                              <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                d="M5 12h14"
+                              />
+                            </svg>
                           </button>
                         ) : (
                           <button
@@ -150,7 +165,7 @@ export default function Cart({ showCart, setShowCart }) {
                               viewBox="0 0 24 24"
                               strokeWidth={1.5}
                               stroke="currentColor"
-                              className="size-6"
+                              className="size-5"
                             >
                               <path
                                 strokeLinecap="round"
@@ -164,9 +179,22 @@ export default function Cart({ showCart, setShowCart }) {
                         <span className="text-xl">{item.cartQuantity}</span>
                         <button
                           onClick={() => handleAddFood(item)}
-                          className="bg-primaryOrange rounded-full text-xl text-white flex items-center justify-center size-9"
+                          className="bg-primaryOrange opacity-100 rounded-full text-xl text-white flex items-center justify-center size-9"
                         >
-                          +
+                          <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke-width="2"
+                            stroke="currentColor"
+                            className="size-4 "
+                          >
+                            <path
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                              d="M12 4.5v15m7.5-7.5h-15"
+                            />
+                          </svg>
                         </button>
                       </div>
                     </div>
