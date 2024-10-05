@@ -50,14 +50,14 @@ export default function CustomersReview() {
   }, []);
 
   return (
-    <section className="lg:py-42 py-10 bg-gray-100 customers-slider">
+    <section className="md:py-42 py-10 bg-gray-100 customers-slider">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
-        <span className="lg:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
+        <span className="md:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           our customers say
         </span>
 
         {/* swiper  */}
-        <div className="relative w-full lg:aspect-square lg:p-5 flex flex-col space-y-10 items-center overflow-hidden">
+        <div className="relative w-full md:aspect-square md:p-5 flex flex-col space-y-10 items-center overflow-hidden">
           <Swiper
             spaceBetween={10}
             centeredSlides={true}
@@ -65,7 +65,7 @@ export default function CustomersReview() {
             loop={true}
             thumbs={thumbSwiper ? { swiper: thumbSwiper } : undefined}
             modules={[Thumbs]}
-            className="mySwiper2 w-full flex-grow lg:pb-48"
+            className="mySwiper2 w-full flex-grow md:pb-48"
           >
             {customers.map((item) => (
               <SwiperSlide className="flex justify-center" key={item.id}>
@@ -73,23 +73,23 @@ export default function CustomersReview() {
                   <img
                     src={item.image}
                     alt={item.name}
-                    className="lg:size-64 size-32 lg:mb-7"
+                    className="md:size-64 size-32 md:mb-7"
                   />
-                  <span className="lg:text-4xl text-2xl font-semibold">
+                  <span className="md:text-4xl text-2xl font-semibold">
                     {item.name}
                   </span>
-                  <span className="lg:text-2xl text-xl text-black/70">
+                  <span className="md:text-2xl text-xl text-black/70">
                     {item.title}
                   </span>
 
                   <div className="max-w-xl">
-                    <span className="font-tinos lg:text-8xl text-5xl text-left">
+                    <span className="font-tinos md:text-8xl text-5xl text-left">
                       “
                     </span>
-                    <p className="text-center lg:text-2xl text-base  leading-10 text-brown">
+                    <p className="text-center md:text-2xl text-base  leading-10 text-brown">
                       {item.comment}
                     </p>
-                    <span className="font-tinos lg:text-8xl text-5xl text-right transform rotate-180 float-end">
+                    <span className="font-tinos md:text-8xl text-5xl text-right transform rotate-180 float-end">
                       “
                     </span>
                   </div>
@@ -112,7 +112,7 @@ export default function CustomersReview() {
             }}
             watchSlidesProgress={true}
             modules={[Thumbs]}
-            className="mySwiper w-full lg:!pt-36 !pt-20 !pb-10  md:!px-6 !px-2"
+            className="mySwiper w-full md:!pt-36 !pt-20 !pb-10  md:!px-6 !px-2"
           >
             {customers.map((item, index) => {
               return (
