@@ -128,7 +128,7 @@ export default function Header() {
             </Link>
             <button
               className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl"
-              onClick={() => setShowCart(true)}
+              onClick={console.log('test')}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
