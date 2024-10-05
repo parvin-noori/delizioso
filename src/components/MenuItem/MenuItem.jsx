@@ -108,7 +108,7 @@ export default function MenuItem({ food, index }) {
             <button
               type="button"
               onClick={() => handleAddFood(food)}
-              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-8 sm:size-10 lg:size-10 flex items-center justify-center"
+              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-10 sm:size-full flex items-center justify-center"
             >
               <span className="hidden sm:block">order now</span>
               <span className="block sm:hidden">

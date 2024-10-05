@@ -3,13 +3,14 @@ import { useEffect, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
 import { PaginationSection } from "../Pagination";
+import { API_URL } from "@/config";
 import _ from "lodash";
 
 export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
   const menuRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("all");
-  const url = "https://delizioso-api.vercel.app/products";
+  const url = `${API_URL}/products`;
   const pageSize = 6; // Number of items per page
   const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
@@ -24,9 +25,7 @@ export default function MenuSection({ sectionTitle }) {
   useEffect(() => {
     const fetchCategories = async () => {
       try {
-        const categoryResponse = await axios.get(
-          "https://delizioso-api.vercel.app/categories"
-        );
+        const categoryResponse = await axios.get(`${API_URL}/categories`);
         setCategories(categoryResponse.data);
       } catch (err) {
         console.log(err);
@@ -37,8 +36,7 @@ export default function MenuSection({ sectionTitle }) {
   }, []);
 
   useEffect(() => {
-    menuRef.current &&
-    menuRef.current.scrollIntoView({ behavior: "smooth" });
+    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
   }, [page]);
 
   const handleCategoryClick = (category) => {
@@ -69,7 +67,10 @@ export default function MenuSection({ sectionTitle }) {
         <span className="md:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           {sectionTitle}
         </span>
-        <ul ref={menuRef} className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
+        <ul
+          ref={menuRef}
+          className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3"
+        >
           <li>
             <a
               className={`${

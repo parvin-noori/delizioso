@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import { API_URL } from "@/config";
 
 export default function Chefs() {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
     const fetchChefs = async () => {
-      const response = await axios.get("https://delizioso-api.vercel.app/chefs");
+      const response = await axios.get(`${API_URL}/chefs`);
       const data = response.data;
       setChefs(data);
     };
@@ -29,8 +30,12 @@ export default function Chefs() {
                 alt={chef.name}
                 className="size-12/12 rounded-xl overflow-hidden group-hover:scale-105 duration-200"
               />
-              <span className="font-semibold md:text-2xl text-base">{chef.name}</span>
-              <span className="md:text-2xl text-base text-gray-400">{chef.title}</span>
+              <span className="font-semibold md:text-2xl text-base">
+                {chef.name}
+              </span>
+              <span className="md:text-2xl text-base text-gray-400">
+                {chef.title}
+              </span>
             </div>
           ))}
         </div>
