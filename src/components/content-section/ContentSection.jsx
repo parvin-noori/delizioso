@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function ContentSection({ children, colWidth, order }) {
   return (
     <div

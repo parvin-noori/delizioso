@@ -5,6 +5,7 @@ export default function CircleImg({ src, containerClasses }) {
     >
       <img
         src={src}
+        alt="img"
         className="absolute z-10 size-10/12 transform translate-x-1/2 -translate-y-1/2 top-1/2 right-1/2"
       />
     </div>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import  SignUpForm  from "@/pages/signUp/SignUpForm";
 import  LoginForm  from "@/pages/login/LoginForm";

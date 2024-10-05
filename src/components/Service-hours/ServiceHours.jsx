@@ -1,4 +1,3 @@
-import serviceHourseBg from "../../assets/imgs/serviceHourse.png";
 export default function ServiceHours() {
   return (
     <section className="lg:py-42 py-24">

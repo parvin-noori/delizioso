@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
 import { PaginationSection } from "../Pagination";
@@ -7,6 +7,7 @@ import _ from "lodash";
 
 export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
+  const menuRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const url = "https://delizioso-api.vercel.app/products";
   const pageSize = 6; // Number of items per page
@@ -34,6 +35,11 @@ export default function MenuSection({ sectionTitle }) {
 
     fetchCategories();
   }, []);
+
+  useEffect(() => {
+    menuRef.current &&
+    menuRef.current.scrollIntoView({ behavior: "smooth" });
+  }, [page]);
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -63,7 +69,7 @@ export default function MenuSection({ sectionTitle }) {
         <span className="md:text-[80px] text-5xl text-center font-bold font-tinos capitalize">
           {sectionTitle}
         </span>
-        <ul className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
+        <ul ref={menuRef} className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
           <li>
             <a
               className={`${
