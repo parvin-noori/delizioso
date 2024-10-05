@@ -64,9 +64,9 @@ export default function MenuSection({ sectionTitle }) {
   // console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
 
   return (
-    <section className="lg:py-42 py-10">
+    <section className="md:py-42 py-10">
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
-        <span className="lg:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
+        <span className="md:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           {sectionTitle}
         </span>
         <ul ref={menuRef} className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
@@ -74,7 +74,7 @@ export default function MenuSection({ sectionTitle }) {
             <a
               className={`${
                 activeCategory === "all" ? "bg-brown text-white" : "bg-gray-100"
-              } md:py-6 lg:text-lg text-base md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
+              } md:py-6 md:text-lg text-base md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
               onClick={() => handleCategoryClick("all")}
             >
               all category
@@ -87,7 +87,7 @@ export default function MenuSection({ sectionTitle }) {
                   activeCategory === category.categoryName
                     ? "bg-brown text-white"
                     : "bg-gray-100"
-                } md:py-6 lg:text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
+                } md:py-6 md:text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
                 onClick={() => handleCategoryClick(category.categoryName)}
               >
                 {category.categoryName}
@@ -105,7 +105,7 @@ export default function MenuSection({ sectionTitle }) {
               ))}
             </div>
 
-            <div className="flex m-auto lg:py-10">
+            <div className="flex m-auto md:py-10">
               <PaginationSection
                 activePage={page}
                 setPage={setPage}

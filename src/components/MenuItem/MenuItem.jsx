@@ -24,17 +24,17 @@ export default function MenuItem({ food, index }) {
       <img
         src={food.img}
         alt={food.title}
-        className="m-auto size-84 aspect-square md:group-hover:scale-110 md:group-hover:rotate-12 drop-shadow-lg duration-700"
+        className="m-auto w-80 aspect-square md:group-hover:scale-110 md:group-hover:rotate-12 drop-shadow-lg duration-700"
       />
       <span className="lg:text-4xl md:text-3xl text-xl font-semibold line-clamp-1">
         {food.title}
       </span>
-      <p className="leading-8 line-clamp-2 lg:line-clamp-3">{food.desc}</p>
+      <p className="leading-8 line-clamp-2 md:line-clamp-3">{food.desc}</p>
       <div className="flex items-center justify-between">
         <span className="md:text-2xl font-semibold text-primaryOrange md:text-black">
           ${food.price}
         </span>
-        <div className="sm:w-36 flex items-center justify-around">
+        <div className="sm:w-36 flex items-center justify-end">
           {cartItem ? (
             <div className="flex sm:gap-3 gap-2 items-center justify-around">
               {cartItem.cartQuantity > 1 ? (
@@ -108,7 +108,7 @@ export default function MenuItem({ food, index }) {
             <button
               type="button"
               onClick={() => handleAddFood(food)}
-              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-8 sm:size-auto flex items-center justify-center"
+              className="text-white  md:hover:scale-110 duration-200 bg-primaryOrange  rounded-full sm:py-4 sm:w-full size-8 sm:size-10 lg:size-10 flex items-center justify-center"
             >
               <span className="hidden sm:block">order now</span>
               <span className="block sm:hidden">
