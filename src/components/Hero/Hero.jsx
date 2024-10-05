@@ -32,6 +32,7 @@ export default function Hero() {
           <img
             src={ItanlianPasta}
             alt=""
+            rel="preload"
             className="relative z-10  aspect-square"
           />
           <img
