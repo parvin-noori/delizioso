@@ -11,10 +11,6 @@ export default function MenuSection({ sectionTitle }) {
   const menuRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const url = `${API_URL}/products`;
-  // const urlSupa = async () => {
-
-  // };
-  // console.log(url);
   const pageSize = 6; // Number of items per page
   const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
@@ -26,15 +22,6 @@ export default function MenuSection({ sectionTitle }) {
     setFoods(data.flat() || []); // Flatten the paginated data
   }, [loading, data]);
 
-  useEffect(() => {
-    const getProduct = async () => {
-      let { data: products, error } = await supabase
-        .from("products")
-        .select("*");
-      console.log(products);
-    };
-    getProduct();
-  }, []);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -52,7 +39,6 @@ export default function MenuSection({ sectionTitle }) {
   }, []);
 
   const handleCategoryClick = (category) => {
-    console.log(category)
     setActiveCategory(category);
     setPage(1); // Reset to the first page when changing category
   };

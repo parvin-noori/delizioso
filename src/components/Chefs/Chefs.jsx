@@ -1,15 +1,14 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { API_URL } from "@/config";
+import { API_URL, supabase } from "@/config";
 
 export default function Chefs() {
   const [chefs, setChefs] = useState([]);
 
   useEffect(() => {
     const fetchChefs = async () => {
-      const response = await axios.get(`${API_URL}/chefs`);
-      const data = response.data;
-      setChefs(data);
+      const { data: chefs, error } = await supabase.from("chefs").select("*");
+      setChefs(chefs);
     };
     fetchChefs();
   }, []);
