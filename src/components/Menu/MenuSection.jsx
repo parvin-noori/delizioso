@@ -3,7 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { MenuItem } from "../MenuItem";
 import usePaginatedFetch from "@/usePaginatedFetch";
 import { PaginationSection } from "../Pagination";
-import { API_URL } from "@/config";
+import { API_URL, supabase } from "@/config";
 import _ from "lodash";
 
 export default function MenuSection({ sectionTitle }) {
@@ -11,6 +11,10 @@ export default function MenuSection({ sectionTitle }) {
   const menuRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("all");
   const url = `${API_URL}/products`;
+  // const urlSupa = async () => {
+
+  // };
+  // console.log(url);
   const pageSize = 6; // Number of items per page
   const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
@@ -23,21 +27,29 @@ export default function MenuSection({ sectionTitle }) {
   }, [loading, data]);
 
   useEffect(() => {
+    const getProduct = async () => {
+      let { data: products, error } = await supabase
+        .from("products")
+        .select("*");
+      console.log(products);
+    };
+    getProduct();
+  }, []);
+
+  useEffect(() => {
     const fetchCategories = async () => {
-      try {
-        const categoryResponse = await axios.get(`${API_URL}/categories`);
-        setCategories(categoryResponse.data);
-      } catch (err) {
-        console.log(err);
-      }
+      let { data: products, error } = await supabase
+        .from("products")
+        .select("category");
+
+      const uniqueCategories = [
+        ...new Set(products.map((product) => product.category)),
+      ];
+      setCategories(uniqueCategories);
     };
 
     fetchCategories();
   }, []);
-
-  // useEffect(() => {
-
-  // }, [page]);
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -81,17 +93,18 @@ export default function MenuSection({ sectionTitle }) {
               all category
             </a>
           </li>
-          {categories.map((category) => (
-            <li key={category.id}>
+
+          {categories.map((category, index) => (
+            <li key={index}>
               <a
                 className={`${
-                  activeCategory === category.categoryName
+                  activeCategory === category
                     ? "bg-brown text-white"
                     : "bg-gray-100"
                 } md:py-6 md:text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
                 onClick={() => handleCategoryClick(category.categoryName)}
               >
-                {category.categoryName}
+                {category}
               </a>
             </li>
           ))}

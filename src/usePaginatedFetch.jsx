@@ -11,7 +11,7 @@ export default function usePaginatedFetch(url, pageSize) {
     const data = response.data;
 
     const paginatedData = _.chunk(data, pageSize);
-    console.log(paginatedData);
+    // console.log(paginatedData);
 
     setData(paginatedData);
     setloading(false);
