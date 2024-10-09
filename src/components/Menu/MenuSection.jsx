@@ -35,9 +35,9 @@ export default function MenuSection({ sectionTitle }) {
     fetchCategories();
   }, []);
 
-  useEffect(() => {
-    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [page]);
+  // useEffect(() => {
+
+  // }, [page]);
 
   const handleCategoryClick = (category) => {
     setActiveCategory(category);
@@ -108,6 +108,7 @@ export default function MenuSection({ sectionTitle }) {
 
             <div className="flex m-auto md:py-10">
               <PaginationSection
+                menuRef={menuRef}
                 activePage={page}
                 setPage={setPage}
                 pages={filterPageCount} // Pass the correct number of pages

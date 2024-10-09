@@ -1,11 +1,12 @@
 import { Input } from "@/components/input";
 import { CheckboxWrapper } from "@/components/checkbox-wrapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { API_URL_USER } from "@/config";
+import { supabase } from "@/config";
 
 export default function LoginForm() {
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const id = e.target.id;
@@ -17,17 +18,25 @@ export default function LoginForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${API_URL_USER}/login`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    });
+    // const response = await fetch(`${API_URL_USER}/login`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(userInfo),
+    // });
 
-    const responseJson = await response.json();
-    localStorage.setItem("token", responseJson.accessToken);
+    // const responseJson = await response.json();
+    // localStorage.setItem("token", responseJson.accessToken);
+    const { data, error } = await supabase.auth.signInWithPassword({
+      email: userInfo.email,
+      password: userInfo.password,
+    });
+    error
+      ? console.log(error.message)
+      : localStorage.setItem("token", data.session.access_token);
+    navigate("/");
   };
   return (
     <form id="signUpForm" className="h-full" onSubmit={handleSubmit}>

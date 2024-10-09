@@ -1,11 +1,12 @@
 import { Input } from "@/components/input";
 import { CheckboxWrapper } from "@/components/checkbox-wrapper";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { API_URL_USER } from "@/config";
+import { supabase } from "@/config";
 
 export default function SignUpForm() {
   const [userInfo, setUserInfo] = useState({});
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const id = e.target.id;
@@ -17,17 +18,23 @@ export default function SignUpForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${API_URL_USER}/register`, {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(userInfo),
-    });
+    // const response = await fetch(`${API_URL_USER}/register`, {
+    //   method: "POST",
+    //   headers: {
+    //     Accept: "application/json",
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(userInfo),
+    // });
 
-    const responseJson = await response.json();
-    localStorage.setItem("token", responseJson.accessToken);
+    // const responseJson = await response.json();
+    // localStorage.setItem("token", responseJson.accessToken);
+    const { data, error } = await supabase.auth.signUp({
+      email: userInfo.email,
+      password: userInfo.password,
+    });
+    error ? console.log(error.message) : navigate("/login");
+    e.target.reset();
   };
   return (
     <form id="signUpForm" className="h-full" onSubmit={handleSubmit}>
