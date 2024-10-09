@@ -52,7 +52,7 @@ export default function MenuSection({ sectionTitle }) {
   }, []);
 
   const handleCategoryClick = (category) => {
-    console.log(category);
+    console.log(category)
     setActiveCategory(category);
     setPage(1); // Reset to the first page when changing category
   };
@@ -94,7 +94,6 @@ export default function MenuSection({ sectionTitle }) {
               all category
             </a>
           </li>
-          {console.log(categories)}
           {categories.map((category, index) => (
             <li key={index}>
               <a
@@ -104,7 +103,9 @@ export default function MenuSection({ sectionTitle }) {
                     : "bg-gray-100"
                 } md:py-6 md:text-lg md:px-16 px-6 py-3 rounded-full capitalize text-nowrap block cursor-pointer`}
                 onClick={() => handleCategoryClick(category)}
-              ></a>
+              >
+                {category}
+              </a>
             </li>
           ))}
         </ul>
