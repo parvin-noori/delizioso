@@ -1,20 +1,26 @@
 import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import axios from "axios";
-import {  Thumbs } from "swiper/modules";
+import { Thumbs } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/thumbs";
 import "./customersReview.css";
+import { supabase } from "@/config";
 
 export default function CustomersReview() {
   const [customers, setCustomers] = useState([]);
   const [thumbSwiper, setThumbsSwiper] = useState(null);
   useEffect(() => {
     const fetchCustomers = async () => {
-      const response = await axios.get("https://delizioso-api.vercel.app/customers");
-      const data = response.data;
-      setCustomers(data);
+      let { data: customers, error } = await supabase
+        .from("customers")
+        .select("*");
+
+      // const response = await axios.get("https://delizioso-api.vercel.app/customers");
+      // const data = response.data;
+      console.log(customers)
+      setCustomers(customers);
     };
     fetchCustomers();
   }, [customers]);
@@ -71,7 +77,7 @@ export default function CustomersReview() {
               <SwiperSlide className="flex justify-center" key={item.id}>
                 <div className="flex flex-col space-y-5 items-center capitalize">
                   <img
-                    src={item.image}
+                    src={item.img}
                     alt={item.name}
                     className="md:size-64 size-32 md:mb-7"
                   />
@@ -127,7 +133,7 @@ export default function CustomersReview() {
                 >
                   <div className="w-full thumbnail-slide relative flex items-center justify-center aspect-square">
                     <img
-                      src={item.image}
+                      src={item.img}
                       alt={item.name}
                       className={` object-cover rounded-full `}
                       style={{ width: sizes[index] }}
