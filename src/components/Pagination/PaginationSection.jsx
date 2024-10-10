@@ -10,7 +10,6 @@ import {
 
 export default function PaginationSection({ activePage, setPage, pages }) {
   const prevPage = () => {
-    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
     setPage((oldPage) => {
       let prevPage = oldPage - 1;
       if (prevPage < 1) {
@@ -18,10 +17,10 @@ export default function PaginationSection({ activePage, setPage, pages }) {
       }
       return prevPage;
     });
+    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   const nextPage = () => {
-    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
     setPage((oldPage) => {
       let nextPage = oldPage + 1;
       if (nextPage > pages) {
@@ -29,6 +28,7 @@ export default function PaginationSection({ activePage, setPage, pages }) {
       }
       return nextPage;
     });
+    menuRef.current && menuRef.current.scrollIntoView({ behavior: "smooth" });
   };
 
   return (

@@ -54,7 +54,6 @@ export default function Header() {
   const [showMenu, setShowMenu] = useState(false);
   const drawerRef = useRef(null);
   const token = localStorage.getItem("token");
-  token ? console.log(token) : console.log("not token");
 
   const { cartTotalQuantity, cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -223,7 +222,11 @@ export default function Header() {
         <div className="drawer-body">
           <ul className="flex flex-col items-start  justify-around">
             {MainMenu.map((item) => (
-              <li key={item.id} className="capitalize w-full" data-delay={item.delay}>
+              <li
+                key={item.id}
+                className="capitalize w-full"
+                data-delay={item.delay}
+              >
                 <NavLink
                   to={item.path}
                   className={({ isActive }) =>

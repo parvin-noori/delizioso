@@ -10,18 +10,35 @@ export default function MenuSection({ sectionTitle }) {
   const [categories, setCategories] = useState([]);
   const menuRef = useRef(null);
   const [activeCategory, setActiveCategory] = useState("all");
-  const url = `${API_URL}/products`;
+  // const url = `${API_URL}/products`;
   const pageSize = 6; // Number of items per page
-  const [loading, data] = usePaginatedFetch(url, pageSize);
+  // const [loading, data] = usePaginatedFetch(url, pageSize);
   const [page, setPage] = useState(1);
-
   const [foods, setFoods] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  // useEffect(() => {
+  //   if (loading) return;
+  //   setFoods(data.flat() || []); // Flatten the paginated data
+  // }, [loading, data]);
+
+  const fetchproduct = async () => {
+    setLoading(true);
+
+    let { data: products, error } = await supabase.from("products").select("*");
+    if (error) {
+      setError(error);
+      setLoading(fasle);
+      return;
+    }
+    setFoods(products);
+    console.log(foods)
+    setLoading(false);
+  };
   useEffect(() => {
-    if (loading) return;
-    setFoods(data.flat() || []); // Flatten the paginated data
-  }, [loading, data]);
-
+    fetchproduct();
+  }, []);
 
   useEffect(() => {
     const fetchCategories = async () => {
@@ -61,15 +78,12 @@ export default function MenuSection({ sectionTitle }) {
   // console.log("Current page foods:", pageinatedFilterFoods[page - 1]);
 
   return (
-    <section className="md:py-42 py-10">
+    <section className="md:py-42 py-10" ref={menuRef}>
       <div className="container grid grid-cols-1 md:space-y-24 space-y-10">
         <span className="md:text-[80px] text-4xl text-center font-bold font-tinos capitalize">
           {sectionTitle}
         </span>
-        <ul
-          ref={menuRef}
-          className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3"
-        >
+        <ul className="category-menu flex items-center justify-between flex-nowrap overflow-x-auto gap-3">
           <li>
             <a
               className={`${
