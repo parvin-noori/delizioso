@@ -103,7 +103,7 @@ export default function Header() {
                 <li
                   key={item.id}
                   className="capitalize"
-                  data-delay={item.delay}
+                
                 >
                   <NavLink
                     to={item.path}
@@ -221,7 +221,7 @@ export default function Header() {
         </div>
         <div className="drawer-body">
           <ul className="flex flex-col items-start  justify-around">
-            <li className="capitalize w-full" data-delay={item.delay}>
+            <li className="capitalize w-full" >
               <NavLink
                 to="/login"
                 className={({ isActive }) =>
@@ -231,7 +231,7 @@ export default function Header() {
                 login
               </NavLink>
             </li>
-            <li className="capitalize w-full" data-delay={item.delay}>
+            <li className="capitalize w-full">
               <NavLink
                 to="/signup"
                 className={({ isActive }) =>
@@ -245,7 +245,7 @@ export default function Header() {
               <li
                 key={item.id}
                 className="capitalize w-full"
-                data-delay={item.delay}
+              
               >
                 <NavLink
                   to={item.path}
