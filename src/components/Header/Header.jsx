@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from "react";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 // import { MdOutlineShoppingCart } from "react-icons/md";
@@ -51,6 +51,10 @@ const MainMenu = [
 
 export default function Header() {
   const [showCart, setShowCart] = useState(false);
+  const [showMenu, setShowMenu] = useState(false);
+  const drawerRef = useRef(null);
+  const token = localStorage.getItem("token");
+  token ? console.log(token) : console.log("not token");
 
   const { cartTotalQuantity, cartItems } = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -58,6 +62,26 @@ export default function Header() {
   useLayoutEffect(() => {
     dispatch(getTotal());
   }, [dispatch, cartItems]);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (drawerRef.current && !drawerRef.current.contains(event.target)) {
+        setShowMenu(false);
+      }
+    };
+
+    if (showMenu) {
+      document.addEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "hidden";
+    } else {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [showCart]);
 
   return (
     <header className="header py-10">
@@ -120,15 +144,33 @@ export default function Header() {
                 />
               </svg>
             </button>
-            <Link
-              to="/login"
-              className="btn-primary hidden lg:block text-nowrap"
-            >
-              log in
-            </Link>
+            {token ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={1.5}
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z"
+                />
+              </svg>
+            ) : (
+              <Link
+                to="/login"
+                className="btn-primary hidden lg:block text-nowrap"
+              >
+                log in
+              </Link>
+            )}
+
             <button
               className="lg:hidden size-12 flex items-center justify-center rounded-full text-xl"
-              onClick={console.log('test')}
+              onClick={(e) => setShowMenu(!showMenu)}
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -149,8 +191,56 @@ export default function Header() {
         </div>
       </div>
 
+      {/* responsive header  */}
+      <div
+        ref={drawerRef}
+        className={`bg-white fixed right-0 min-w-80 top-0 flex flex-col bottom-0 z-50 h-full ${
+          showMenu ? "translate-x-0 visible" : "translate-x-full"
+        }  transform transition-transform duration-700`}
+      >
+        <div className="drawer-header flex items-center justify-end p-4">
+          <button
+            type="btn"
+            className="p-3 "
+            onClick={() => setShowMenu(!showMenu)}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="size-5"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M6 18 18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+        <div className="drawer-body">
+          <ul className="flex flex-col items-start  justify-around">
+            {MainMenu.map((item) => (
+              <li key={item.id} className="capitalize w-full" data-delay={item.delay}>
+                <NavLink
+                  to={item.path}
+                  className={({ isActive }) =>
+                    `p-4 block hover:bg-primaryOrange hover:text-white duration-300 w-full ${isActive} ? "text-primaryOrange" : "hover:text-primaryOrange"`
+                  }
+                >
+                  {item.title}
+                </NavLink>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
       <Cart showCart={showCart} setShowCart={setShowCart} />
       {showCart && <Overlay />}
+      {showMenu && <Overlay />}
     </header>
   );
 }
