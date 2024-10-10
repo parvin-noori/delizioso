@@ -221,6 +221,26 @@ export default function Header() {
         </div>
         <div className="drawer-body">
           <ul className="flex flex-col items-start  justify-around">
+            <li className="capitalize w-full" data-delay={item.delay}>
+              <NavLink
+                to="/login"
+                className={({ isActive }) =>
+                  `p-4 block hover:bg-primaryOrange hover:text-white duration-300 w-full ${isActive} ? "text-primaryOrange" : "hover:text-primaryOrange"`
+                }
+              >
+                login
+              </NavLink>
+            </li>
+            <li className="capitalize w-full" data-delay={item.delay}>
+              <NavLink
+                to="/signup"
+                className={({ isActive }) =>
+                  `p-4 block hover:bg-primaryOrange hover:text-white duration-300 w-full ${isActive} ? "text-primaryOrange" : "hover:text-primaryOrange"`
+                }
+              >
+                signup
+              </NavLink>
+            </li>
             {MainMenu.map((item) => (
               <li
                 key={item.id}
