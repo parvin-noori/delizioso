@@ -13,14 +13,14 @@ export default function CustomersReview() {
   const [thumbSwiper, setThumbsSwiper] = useState(null);
   useEffect(() => {
     const fetchCustomers = async () => {
-      let { data: customers, error } = await supabase
+      let { data: customersData, error } = await supabase
         .from("customers")
         .select("*");
 
       // const response = await axios.get("https://delizioso-api.vercel.app/customers");
       // const data = response.data;
-      console.log(customers)
-      setCustomers(customers);
+      console.log(customersData)
+      setCustomers(customersData);
     };
     fetchCustomers();
   }, [customers]);
